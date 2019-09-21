@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1569058484179.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "2805B351",
+    "lastKnownWriteTime" : 1569058503,
+    "last_content_update" : 1569058503202,
+    "path" : "~/Dropbox (Personal)/Workshops/20191004_COMBINE/slides/setup.Rmd",
+    "project_path" : "slides/setup.Rmd",
+    "properties" : {
+        "cursorPosition" : "15,18",
+        "scrollLine" : "13"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 12,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

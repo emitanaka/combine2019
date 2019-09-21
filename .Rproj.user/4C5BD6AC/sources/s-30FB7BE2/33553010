@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1569058973230.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3140925340",
+    "id" : "33553010",
+    "lastKnownWriteTime" : 1569077113,
+    "last_content_update" : 1569077113259,
+    "path" : "~/Dropbox (Personal)/Workshops/20191004_COMBINE/scripts/challenge-02.Rmd",
+    "project_path" : "scripts/challenge-02.Rmd",
+    "properties" : {
+        "cursorPosition" : "48,41",
+        "scrollLine" : "36"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 14,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

@@ -1,0 +1,41 @@
+
+background-image: url(`r rmarkdown::metadata$titleslide_bgimg`)
+background-size: cover
+class: hide-slide-number
+
+
+:::::::::: { .grid grid: 36% 64% / 1fr;} 
+::: item center
+
+# <span style="text-shadow: 2px 2px 30px white;">Communicating with Data <br> via R Markdown</span>
+
+
+## <span style="color:`r rmarkdown::metadata$color_theme`;text-shadow: 2px 2px 30px black;">`r knitr::asis_output(rmarkdown::metadata$subtitle)`</span>
+
+:::
+
+::: item center shade_black animated bounceInUp slower
+
+Presented by `r rmarkdown::metadata$author`
+
+School of Mathematics and Statistics
+
+<img src="assets/USydLogo-white.svg" style="width:200px"><br>
+`r anicon::faa("envelope", animate="float")`  `r rmarkdown::metadata$email`
+`r anicon::faa("twitter", animate="float", speed="fast")`  @statsgen
+
+`r rmarkdown::metadata$date`
+
+
+:::
+
+:::::::::: 
+
+
+::: { .shade_black .pos .font_small width:20%;right:10px;bottom:20%;padding:5px;border: solid 5px white;}
+
+<i class="fas fa-exclamation-circle"></i> These slides are viewed best by Chrome and occasionally need to be refreshed if elements did not load properly. See here for <a href=`r rmarkdown::metadata$pdflink` style="color:white!important"/>PDF <i class="fas fa-file-pdf"></i></a>. 
+
+:::
+
+

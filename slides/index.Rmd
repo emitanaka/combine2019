@@ -1,0 +1,82 @@
+---
+title: "Title"
+subtitle: "Subtitle"
+author: "Emi Tanaka"
+email: "dr.emi.tanaka@gmail.com"
+date: "01/01/2019"
+length: "25 minutes"
+output:
+  xaringan::moon_reader:
+    css: [ninjutsu, "assets/animate.css", "assets/cssgrid.css", "assets/custom.css", ]
+    self_contained: false # if true, fonts will be stored locally
+    seal: false # show a title slide with YAML information
+    #yolo: false # show Karl randomly
+    chakra: 'libs/remark-latest.min.js'
+    beforeInit: "assets/custom.js"
+    lib_dir: libs
+    includes:
+      in_header: "assets/custom.html"
+      # before_body: 
+      after_body: "assets/remarkjs_extended.html"
+      # includes
+    mathjax: "assets/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+    nature:
+      # autoplay: 100 # in milliseconds to play next slide
+      # coundown: 100 # to display on each slide (TRUE if autoplay on)
+      # titleSlideClass: c("center", "middle", "inverse")
+      highlightStyle: github # [arta, ascetic, dark, default, far, github, googlecode, idea, ir-black, magula, monokai, rainbow, solarized-dark, solarized-light, sunburst, tomorrow, tomorrow-night-blue, tomorrow-night-bright, tomorrow-night, tomorrow-night-eighties, vs, zenburn.]
+      highlightLanguage: r # no-highlight to disable
+      highlightLines: true
+      highlightSpans: false # true: use `backticks` as delimiters.
+      countIncrementalSlides: false
+      slideNumberFormat: '%current%/%total%'
+      navigation:
+        scroll: false # disable scrolling to navigate slides
+        touch: true
+        click: false
+      ratio: '16:9' # ['4:3', '13:9']
+---
+
+background-image: url("images/bg4.jpg")
+background-size: cover
+class: hide-slide-number
+
+
+```{r external, child="setup.Rmd", include=FALSE}
+```
+```{r activate-chunks, eval=TRUE}
+knitr::opts_chunk$set(echo=FALSE, eval=TRUE)
+```
+
+
+:::::::::: { .grid grid: 1fr / 7fr 3fr;} 
+
+::: {.item .shade_black border-right-style: solid; border-right-color: white;}
+
+<br><br>
+
+# `r rmarkdown::metadata$title`
+
+<br><br>
+
+Presented by `r rmarkdown::metadata$author`
+
+School of Mathematics and Statistics<br>
+`r anicon::faa("envelope", animate="float")`  `r rmarkdown::metadata$email`
+`r anicon::faa("twitter", animate="float", speed="fast")`  @statsgen
+
+`r rmarkdown::metadata$date`
+
+
+::: item 
+
+::: { .bg-yellow  .black .pos width:calc(29.998% - 5px);right:0;bottom:0;padding-left:5px;}
+<i class="fas fa-link"></i> The link to these slides will be available at the end.<br>
+<!-- <i class="fas fa-exclamation-circle"></i> These slides are viewed best by Chrome and occasionally need to be refreshed if elements did not load properly. See here for <a href="https://www.dropbox.com/s/xiogj7hghwntf9u/slides.pdf?dl=0" style="color:black!important"/>PDF <i class="fas fa-file-pdf"></i></a>. -->
+
+:::
+
+:::::::::: 
+
+<img src="assets/USydLogo-white.svg" style="position:absolute; bottom:18%; left:50%;width:200px">
+

@@ -1,0 +1,47 @@
+---
+title: "Challenge 1: Tables"
+output: 
+  pdf_document
+---
+
+* A `pdf` document uses [latex](https://www.latex-project.org/) under the hood to compile a `.tex` file to `pdf`.
+* In latex a table is written as (see source Rmd file)
+
+\begin{center}
+\begin{tabular}{rr}
+\hline
+Var1 & Var2 \\
+\hline
+1 & 2 \\
+3 & 4\\
+\hline
+\end{tabular}
+\end{center}
+
+* A markdown table is written as (see source Rmd file)
+
+| Var1| Var2|
+|----:|----:|
+|    1|    2|
+|    3|    4|
+
+
+* A table can be created by using `knitr`'s `kable` function as below:
+
+
+```{r}
+extab <- data.frame(Var1 = c(1, 3),
+                    Var2 = c(2, 4))
+knitr::kable(extab)
+```
+
+
+
+
+## Challenges
+
+1. `knit` this document to get a pdf output
+1. Change this document output format to `html`.
+1. **What happened to the table written in latex?**
+1. Try writing an equivalent html table. 
+

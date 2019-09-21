@@ -1,0 +1,51 @@
+---
+title: "Challenge 2"
+subtitle: "Chunk options & names"
+output: 
+  rmdformats::material
+    
+---
+
+# Suppressing setup code and output
+
+## Case study: loading `tidyverse`
+
+If you try to load the `tidyverse` package, you get many messages.
+
+
+```{r pkg-load}
+library(tidyverse)
+```
+
+In writing your report, it is most likely undesirable that it
+
+1. prints your the R code; and
+1. has all the messages printed.
+
+If you have the chunk with `eval = FALSE` then it will not print those messages but it will not _**eval**uate_ the R code within the chunk.
+
+You can see this if we first unload the `ggplot2` pacakge that was loaded with `tidyverse` previously:
+
+```{r, warning = FALSE}
+detach("package:ggplot2", unload = TRUE)
+```
+
+then try to load the package but without evaluating the code within the chunk:
+
+```{r pkg-load, eval = FALSE}
+```
+
+and try to run `ggplot` function
+
+```{r, error = TRUE}
+ggplot(cars, aes(dist, speed)) +
+  geom_point()
+```
+
+we get an error! This is because the chunk to load the `tidyverse` was not evaluated. 
+
+What you want to do is to _suppress the code_ and for this you can use `echo = FALSE`.
+
+```{r pkg-load, echo = FALSE, eval = TRUE}
+```
+

@@ -1,0 +1,298 @@
+---
+title: "Communicating with Data via R markdown"
+subtitle: "Reproducible Reports"
+author: "Emi Tanaka"
+email: "dr.emi.tanaka@gmail.com"
+date: "4th October 2019 | COMBINE | Sydney, Australia"
+length: "90 minutes"
+pdflink: "link"
+titleslide_bgimg: "images/bg1.jpg"
+color_theme: "#f9af2b"
+output:
+  xaringan::moon_reader:
+    css: [ninjutsu, "assets/animate.css", "assets/cssgrid.css", "assets/custom.css"]
+    self_contained: false # if true, fonts will be stored locally
+    seal: false # show a title slide with YAML information
+    #yolo: false # show Karl randomly
+    chakra: 'libs/remark-latest.min.js'
+    #beforeInit: "assets/custom.js"
+    lib_dir: libs
+    includes:
+      #in_header: "assets/custom.html"
+      # before_body: 
+      after_body: "assets/remarkjs_extended.html"
+      # includes
+    mathjax: "assets/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+    nature:
+      # autoplay: 100 # in milliseconds to play next slide
+      # coundown: 100 # to display on each slide (TRUE if autoplay on)
+      # titleSlideClass: c("center", "middle", "inverse")
+      highlightStyle: dark # [arta, ascetic, dark, default, far, github, googlecode, idea, ir-black, magula, monokai, rainbow, solarized-dark, solarized-light, sunburst, tomorrow, tomorrow-night-blue, tomorrow-night-bright, tomorrow-night, tomorrow-night-eighties, vs, zenburn.]
+      highlightLanguage: r # no-highlight to disable
+      highlightLines: true
+      highlightSpans: false # true: use `backticks` as delimiters.
+      countIncrementalSlides: false
+      slideNumberFormat: '%current%/%total%'
+      navigation:
+        scroll: false # disable scrolling to navigate slides
+        touch: true
+        click: false
+      ratio: '16:9' # ['4:3', '13:9']
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+```
+
+```{r titleslide, child="titleslide.Rmd"}
+```
+---
+
+# R Markdown Basics
+
+::: {.grid grid: 1fr / 600px 50px; } 
+
+::: item 
+
+<img src="images/first-rmarkdown-code.png" width="600px" style="border: solid 1px black;" />
+
+:::
+
+::: item 
+
+:::
+
+:::
+
+::: {.pos width:45px; border: solid 2px red;top:25%;left:18%; height:25px;}
+:::
+
+::: {.pos color:red;top:13%;left:16.5%;width:1000px;}
+
+File extension is Rmd
+
+:::
+
+
+::: { .bubble1 .pos width:600px;left:40%;top:35%;}
+
+YAML: meta data fenced by `---`
+
+:::
+
+::: { .bubble1 .pos width:550px;left:53%;top:60%;}
+
+Text: can use `markdown` syntax
+
+:::
+
+::: { .bubble1 .pos width:550px;left:28%;top:80%; }
+
+Code chunk fenced by ` ``` `
+
+:::
+
+---
+
+# Knitting: <code>Rmd</code> <i class="far fa-file"></i>&nbsp; <i class="fas fa-arrow-right"></i>&nbsp;<code>md</code> <i class="far fa-file"></i>&nbsp;<i class="fas fa-arrow-right"></i> &nbsp;<code>html</code> <i class="far fa-file"></i>
+
+::: {.grid grid: 1fr / 600px 100px 600px; } 
+
+::: item 
+
+<img src="images/first-rmarkdown-code.png" width="550px" style="border: solid 1px black;" />
+
+:::
+
+::: item 
+
+<br><br>
+<i class="fas fa-arrow-alt-circle-right" style="font-size: 3em;"></i>
+
+:::
+
+::: item 
+
+<pre>first-rmarkdown.html</pre>
+
+<img src="images/first-rmarkdown-output.png" width="400px" style="border: solid 1px black;" />
+
+:::
+
+:::
+
+::: {.pos width:66px; border: solid 4px red;top:30%;left:23%; height:25px;}
+:::
+
+::: {.pos top:25%;left:25%; height:25px;}
+`r anicon::faa("arrow-down", animate="vertical", color="red")`
+<p></p>
+:::
+
+
+---
+
+
+# Knitting: <code>Rmd</code> <i class="far fa-file"></i>&nbsp; <i class="fas fa-arrow-right"></i>&nbsp;<code>md</code> <i class="far fa-file"></i>&nbsp;<i class="fas fa-arrow-right"></i> &nbsp;<code>pdf</code> <i class="far fa-file"></i>
+
+::: {.grid grid: 1fr / 600px 100px 600px; } 
+
+::: item 
+
+<img src="images/second-rmarkdown-code.png" width="548px" style="border: solid 1px black;" />
+
+:::
+
+::: item 
+
+<br><br>
+<i class="fas fa-arrow-alt-circle-right" style="font-size: 3em;"></i>
+
+:::
+
+::: item 
+
+<pre>first-rmarkdown.pdf</pre>
+
+<img src="images/second-rmarkdown-output.png" width="400px" style="border: solid 1px black;" />
+
+:::
+
+:::
+
+::: {.pos width:66px; border: solid 4px red;top:31%;left:23%; height:25px;}
+:::
+
+::: {.pos top:23.5%;left:25%; height:25px;}
+
+`r anicon::faa("arrow-down", animate="vertical", color="red")`
+
+:::
+
+---
+
+class: middle question
+
+
+There are many other .yellow[output formats] possible with R Markdown via Pandoc.
+
+Can you name another 3?
+
+`r countdown::countdown(1, font_size = "1.5em", color_background="white", color_text = "black", color_border="black")`
+
+---
+
+class: info
+
+# Shortcut for inserting code chunk  
+
+::: grid 
+
+::: item
+
+In  .Rmd press
+
+* Mac: <kbd>⌘</kbd> + <kbd>⌥</kbd> + <kbd>i</kbd> 
+
+
+* PC: <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>i</kbd> 
+
+to insert a chunk of R code
+
+::: font_large
+
+````markdown
+`r ''````{r}
+
+```
+````
+
+:::
+:::
+
+::: item 
+
+:::
+
+:::
+
+---
+
+# Chunk options: <code>echo</code> & <code>eval</code>
+
+::: grid 
+::: item 
+
+````markdown
+`r ''````{r, echo = FALSE}
+1 + 1
+```
+````
+<center>
+<i class="fas fa-arrow-down"></i>
+</center>
+
+```{r, echo = FALSE}
+1 + 1
+```
+
+<p></p>
+
+::: 
+
+::: item 
+
+````markdown
+`r ''````{r, eval = FALSE}
+1 + 1
+```
+````
+
+<center>
+<i class="fas fa-arrow-down"></i>
+</center>
+
+```{r, eval = FALSE}
+1 + 1
+```
+
+<p></p>
+
+:::
+
+:::
+
+---
+
+class: question middle
+
+There are many more .yellow[chunk options].
+
+Can you name 5 other ones?
+
+Hint: https://yihui.name/knitr/options/
+
+(We'll explore these later.)
+
+
+---
+
+# Chunk names
+
+The chunk below is called `plot1`.
+````markdown
+`r ''````{r plot1}
+ggplot(cars, aes(dist, speed)) + geom_point()
+```
+````
+
+---
+
+```{r checklist}
+checklist <- c("Make a html document from .Rmd",
+               "Make a pdf document from .Rmd")
+```
+```{r endslide, child="endslide.Rmd"}
+```
+
+

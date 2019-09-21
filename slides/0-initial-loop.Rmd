@@ -1,0 +1,149 @@
+---
+title: "Communicating with Data via R markdown"
+author: "Emi Tanaka"
+email: "dr.emi.tanaka@gmail.com"
+date: "4th October 2019 | COMBINE | Sydney, Australia"
+length: "25 minutes"
+pdflink: "link"
+titleslide_bgimg: "images/bg2.jpg"
+color_theme: "white"
+output:
+  xaringan::moon_reader:
+    css: [ninjutsu, "assets/animate.css", "assets/cssgrid.css", "assets/custom.css", ]
+    self_contained: false # if true, fonts will be stored locally
+    seal: false # show a title slide with YAML information
+    #yolo: false # show Karl randomly
+    chakra: 'libs/remark-latest.min.js'
+    beforeInit: "assets/custom.js"
+    lib_dir: libs
+    includes:
+      in_header: "assets/custom.html"
+      # before_body: 
+      after_body: ["assets/remarkjs_extended.html", 
+      "assets/loop.html"]
+      # includes
+    mathjax: "assets/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+    nature:
+      # autoplay: 1000 # in milliseconds to play next slide
+      # coundown: 100 # to display on each slide (TRUE if autoplay on)
+      # titleSlideClass: c("center", "middle", "inverse")
+      highlightStyle: github # [arta, ascetic, dark, default, far, github, googlecode, idea, ir-black, magula, monokai, rainbow, solarized-dark, solarized-light, sunburst, tomorrow, tomorrow-night-blue, tomorrow-night-bright, tomorrow-night, tomorrow-night-eighties, vs, zenburn.]
+      highlightLanguage: r # no-highlight to disable
+      highlightLines: true
+      highlightSpans: false # true: use `backticks` as delimiters.
+      countIncrementalSlides: false
+      slideNumberFormat: '%current%/%total%'
+      navigation:
+        scroll: false # disable scrolling to navigate slides
+        touch: true
+        click: false
+      ratio: '16:9' # ['4:3', '13:9']
+---
+
+
+```{r external, child="setup.Rmd", include=FALSE}
+```
+
+layout: true
+background-size: cover
+class: hide-slide-number
+
+
+:::::::::: { .grid grid: 60% 40% / 1fr;} 
+::: item center
+
+{{content}}
+
+
+:::
+
+::: item center shade_black
+
+`r rmarkdown::metadata$author` `r anicon::faa("twitter", animate="float", speed="fast")`  @statsgen
+
+<i class="fas fa-link"></i> emitanaka.org/workshop/combine2019
+
+`r rmarkdown::metadata$date`
+
+
+:::
+
+:::::::::: 
+
+---
+
+background-image: url("images/bg1.jpg")
+
+# <span style="text-shadow: 2px 2px 3px black;color:yellow;">Welcome to</span>
+# <span style="text-shadow: 2px 2px 30px white;">Communicating with Data <br> via R Markdown</span>
+
+---
+
+class: center middle
+
+# Wireless Internet
+
+::: grid 
+
+::: item 
+
+<i class="fas fa-wifi"></i>
+
+Wifi network
+
+`Univeristy of Sydney`
+
+:::
+
+::: item
+
+<i class="fas fa-key"></i>
+
+Wifi password
+
+`tidyverse`
+
+:::
+
+:::
+
+
+---
+
+background-image: url("images/bg2.jpg")
+
+# <span style="text-shadow: 2px 2px 3px black;color:yellow;">Welcome to</span>
+# <span style="text-shadow: 2px 2px 30px white;">Communicating with Data <br> via R Markdown</span>
+
+
+---
+
+# Pre-work checklist
+
+
+::: box 
+
+* Complete the markdown tutorial: https://www.markdowntutorial.com/
+
+
+* Log into RStudio Cloud 
+
+
+* Download the course work materials
+
+:::
+
+---
+
+background-image: url("images/bg3.jpg")
+
+# <span style="text-shadow: 2px 2px 3px black;color:yellow;">Welcome to</span>
+# <span style="text-shadow: 2px 2px 30px white;">Communicating with Data <br> via R Markdown</span>
+[Background photo by Adam H. Sparks]{.pos .font_small top:5px;left:5px;}
+
+---
+
+
+ The workshop is organised by<br>COMBINE NSW representative Mengbo Li
+ 
+ <img src="images/mengbo.png" width="280px" style="border: solid 3px black;"/>

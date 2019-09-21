@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1569055320220.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3444043125",
+    "id" : "50439E99",
+    "lastKnownWriteTime" : 1567311843,
+    "last_content_update" : 1567311843,
+    "path" : "~/Dropbox (Personal)/Workshops/20191004_COMBINE/slides/assets/pandoc.js",
+    "project_path" : "slides/assets/pandoc.js",
+    "properties" : {
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 11,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "js"
+}

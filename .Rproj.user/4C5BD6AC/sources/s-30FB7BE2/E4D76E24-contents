@@ -1,0 +1,59 @@
+# Pre-Workshop To Do List
+
+- [ ] Get sticky notes 
+- [ ] Get RStudio Cloud instance ready
+- [ ] Increase the number of members for RStudio Cloud
+- [ ] Get the course zip file ready
+- [ ] Upload zip file to web (dropbox or github)
+- [ ] Make a copy of needed files in a USB stick
+
+## Just before workshop
+
+- [ ] Check the links works
+- [ ] Check RStudio Cloud works
+
+
+## Logistics
+
+When scheduling a venue, ensure that the classroom has power strips for the students and wireless internet.
+About a week ahead of the class, email the students the workshop set up instructions. These remind students to bring a laptop and a power cord, tell students how to download the free software that we will use in class, and ask students to create a free RStudio Cloud account. I do not tell students this unless they are having severe installation bugs, but we won't use these local copies during the workshop. They are only backups in case the classroom wireless network fails. I generally do not have students download slides, etc. ahead of time.
+Set up an rstudio.cloud project for the students to use on the day of class. Pre-install all of the packages that students will use and upload all of the course materials to the project directory. Be sure to open and knit one of the student exercises to prompt RStudio Cloud to also install all of the packages related to kniting R Markdown documents.
+Under the settings (gear) icon, click Access and then make the project viewable by everyone.
+Copy the project URL and paste it over the analagous URL in the 01-Introduction slide decks.
+On the day of the course:
+
+Have students visit the URL when prompted by the slides.
+Demonstrate what will happen when they do. It will take ~35 seconds for everyone's project to open.
+Have students immediately click "Save a Permanent Copy" at the top of their project.
+At this point, each student will have an indentical instance of R and RStudio to run their exercises in. They will also have access to all of the course materials, which are included in the project. You can show students how to download these materials to their project locally (if they wish) when prompted by the slides. Students will have access to their permanent copies of the RStudio Cloud project, and the work they did therein, forever. Like most things RStudio Cloud no longer supports support Internet Explorer.
+
+
+## Content 
+
+### Communicating with Data via R Markdown
+
+#### Description
+
+The workshop will teach how to create reproducible reports using R Markdown. The workshop will cover the basics of R Markdown as well as contain some tips to streamline your scientific writing including the use of parameterised reports and custom templates. The latter part of the workshop will teach about creating pretty presentation using R Markdown via the xaringan R package. There will be some introduction to CSS/HTML and tips on making beautiful slides. 
+This workshop is a preview to the "Communicating with Data" course taught as part of Master of Business Analytics in Monash University. 
+
+#### Instructor
+
+The instructor will be Dr Emi Tanaka. She is a lecturer in statistics at the School of Mathematic and Statistics, The University of Sydney, and an experienced R user. She has been a teaching assistant for Tidy Tools workshop by Dr Hadley Wickham (Chief Scientist at RStudio); Communicating with R Markdown workshop by Dr Alison Hill (from RStudio) and Visualising high-dimensional data workshop by Prof Di Cook (from Monash).
+
+#### Requirements
+
+
+The workshop participants are expected to have some familiarity with R. Specifically it would be desirable if they know the basics such as covered by "An Introduction to R" Sections 1-6, 9-10 (https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf). 
+
+Some basic familiarity with Markdown or R Markdown is desirable to get the most out of the workshop but not necessary.
+
+The workshop participants will be expected to bring their own laptops (with administrative rights) with latest R and RStudio installed along with latest tidyverse, knitr, rmarkdown and xaringan R-packages.
+
+The intended schedule is:
+
+12.30pm - 1.00pm Registration 
+ 1.00pm - 1.30pm Introduction
+ 1.30pm -  3.00pm Reproducible Reports with R Markdown via Pandoc
+ 3.00pm -  3.30pm Afternoon Tea
+ 3.30pm -  5.00pm Pretty Presentations with R Markdown via xaringan & remark.js 
