@@ -1,3 +1,0 @@
----
-output: html_document
----
