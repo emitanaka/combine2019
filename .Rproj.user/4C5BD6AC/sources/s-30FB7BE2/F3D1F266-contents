@@ -1,7 +1,6 @@
 ---
 title: "Challenge 1: Tables"
-output: 
-  pdf_document
+output: pdf_document
 ---
 
 * A `pdf` document uses [latex](https://www.latex-project.org/) under the hood to compile a `.tex` file to `pdf`.
@@ -34,7 +33,6 @@ extab <- data.frame(Var1 = c(1, 3),
                     Var2 = c(2, 4))
 knitr::kable(extab)
 ```
-
 
 
 

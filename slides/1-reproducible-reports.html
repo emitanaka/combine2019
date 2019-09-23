@@ -26,7 +26,7 @@ background-size: cover
 class: hide-slide-number
 
 
-:::::::::: { .grid grid: 36% 64% / 1fr;} 
+:::::::::: { .grid grid: 40% 60% / 1fr;} 
 ::: item center
 
 # &lt;span style="text-shadow: 2px 2px 30px white;"&gt;Communicating with Data &lt;br&gt; via R Markdown&lt;/span&gt;
@@ -63,139 +63,33 @@ School of Mathematics and Statistics
 
 ---
 
-# R Markdown Basics
-
-::: {.grid grid: 1fr / 600px 50px; } 
-
-::: item 
-
-&lt;img src="images/first-rmarkdown-code.png" width="600px" style="border: solid 1px black;" /&gt;
-
-:::
-
-::: item 
-
-:::
-
-:::
-
-::: {.pos width:45px; border: solid 2px red;top:25%;left:18%; height:25px;}
-:::
-
-::: {.pos color:red;top:13%;left:16.5%;width:1000px;}
-
-File extension is Rmd
-
-:::
 
 
-::: { .bubble1 .pos width:600px;left:40%;top:35%;}
+class: question middle 
 
-YAML: meta data fenced by `---`
+R Markdown is such an *indispensible tool* for making documents, especially if you have plan to *include statistical output*.
 
-:::
 
-::: { .bubble1 .pos width:550px;left:53%;top:60%;}
-
-Text: can use `markdown` syntax
-
-:::
-
-::: { .bubble1 .pos width:550px;left:28%;top:80%; }
-
-Code chunk fenced by ` ``` `
-
-:::
+How do you use (or plan to use) &lt;br&gt;R Markdown?
 
 ---
 
-# Knitting: &lt;code&gt;Rmd&lt;/code&gt; &lt;i class="far fa-file"&gt;&lt;/i&gt;&amp;nbsp; &lt;i class="fas fa-arrow-right"&gt;&lt;/i&gt;&amp;nbsp;&lt;code&gt;md&lt;/code&gt; &lt;i class="far fa-file"&gt;&lt;/i&gt;&amp;nbsp;&lt;i class="fas fa-arrow-right"&gt;&lt;/i&gt; &amp;nbsp;&lt;code&gt;html&lt;/code&gt; &lt;i class="far fa-file"&gt;&lt;/i&gt;
+class: info
 
-::: {.grid grid: 1fr / 600px 100px 600px; } 
+# People that made R Markdown possible
 
-::: item 
-
-&lt;img src="images/first-rmarkdown-code.png" width="550px" style="border: solid 1px black;" /&gt;
-
-:::
-
-::: item 
-
-&lt;br&gt;&lt;br&gt;
-&lt;i class="fas fa-arrow-alt-circle-right" style="font-size: 3em;"&gt;&lt;/i&gt;
-
-:::
-
-::: item 
-
-&lt;pre&gt;first-rmarkdown.html&lt;/pre&gt;
-
-&lt;img src="images/first-rmarkdown-output.png" width="400px" style="border: solid 1px black;" /&gt;
-
-:::
-
-:::
-
-::: {.pos width:66px; border: solid 4px red;top:30%;left:23%; height:25px;}
-:::
-
-::: {.pos top:25%;left:25%; height:25px;}
-<span>&lt;i class="fas  fa-arrow-down faa-vertical animated " style=" color:red;"&gt;&lt;/i&gt;</span>
-&lt;p&gt;&lt;/p&gt;
-:::
+The development of R Markdown is largely thanks to
 
 
----
+
+* Yihui Xie &lt;br&gt;*Software Engineer at RStudio*&lt;br&gt; for `knitr`
 
 
-# Knitting: &lt;code&gt;Rmd&lt;/code&gt; &lt;i class="far fa-file"&gt;&lt;/i&gt;&amp;nbsp; &lt;i class="fas fa-arrow-right"&gt;&lt;/i&gt;&amp;nbsp;&lt;code&gt;md&lt;/code&gt; &lt;i class="far fa-file"&gt;&lt;/i&gt;&amp;nbsp;&lt;i class="fas fa-arrow-right"&gt;&lt;/i&gt; &amp;nbsp;&lt;code&gt;pdf&lt;/code&gt; &lt;i class="far fa-file"&gt;&lt;/i&gt;
-
-::: {.grid grid: 1fr / 600px 100px 600px; } 
-
-::: item 
-
-&lt;img src="images/second-rmarkdown-code.png" width="548px" style="border: solid 1px black;" /&gt;
-
-:::
-
-::: item 
-
-&lt;br&gt;&lt;br&gt;
-&lt;i class="fas fa-arrow-alt-circle-right" style="font-size: 3em;"&gt;&lt;/i&gt;
-
-:::
-
-::: item 
-
-&lt;pre&gt;first-rmarkdown.pdf&lt;/pre&gt;
-
-&lt;img src="images/second-rmarkdown-output.png" width="400px" style="border: solid 1px black;" /&gt;
-
-:::
-
-:::
-
-::: {.pos width:66px; border: solid 4px red;top:31%;left:23%; height:25px;}
-:::
-
-::: {.pos top:23.5%;left:25%; height:25px;}
-
-<span>&lt;i class="fas  fa-arrow-down faa-vertical animated " style=" color:red;"&gt;&lt;/i&gt;</span>
-
-:::
-
----
-
-class: middle question
+* John MacFarlane &lt;br&gt;*Professor of Philosophy at UC Berkeley*&lt;br&gt; for `pandoc`
 
 
-There are many other .yellow[output formats] possible with R Markdown via Pandoc.
+* and many contributors behind the development of these tools.
 
-Can you name another 3?
-
-<div class="countdown" id="timer_5d85f94c" style="right:0;bottom:0;font-size:1.5em;">
-<code><span class="digits minutes">01</span><span class="digits colon">:</span><span class="digits seconds">00</span></code>
-</div>
 
 ---
 
@@ -291,12 +185,27 @@ Can you name 5 other ones?
 
 Hint: https://yihui.name/knitr/options/
 
-(We'll explore these later.)
+(We'll explore some later)
 
 
 ---
 
-# Chunk names
+class: info
+
+# Valid chunk options
+
+* Chunk options must be written in **one line**, i.e. no line break. 
+
+
+* All option values must be **valid R expressions**. Exception is the chunk name. E.g.
+   * `fig.path = figures/` is not valid but &lt;br&gt;`fig.path = "figures/"` is valid
+   * `eval = true` is not valid but&lt;br&gt; `eval = runif(1) &gt; 0.5` is valid
+
+---
+
+class: info
+
+# Chunk names (or labels)
 
 The chunk below is called `plot1`.
 ````markdown
@@ -305,13 +214,344 @@ ggplot(cars, aes(dist, speed)) + geom_point()
 ```
 ````
 
+All chunks have a label regardless of whether it is explicitly supplied or not.
+
+All chunks without explicit name has labels with prefix `unnamed-chunk-`.
+
+---
+
+class: challenge middle
+
+# Try your best going through 
+
+`challenge-02.Rmd`
+
+<div class="countdown" id="timer_5d887a9b" style="right:0;bottom:0;font-size:1.5em;">
+<code><span class="digits minutes">20</span><span class="digits colon">:</span><span class="digits seconds">00</span></code>
+</div>
+
+---
+
+# R Markdown is not just for R
+
+::: grid 
+
+::: item 
+
+````markdown
+```{python, echo = FALSE}
+a = [1, 2, 3]
+a[0]
+```
+````
+
+&lt;center&gt;
+&lt;i class="fas fa-arrow-down"&gt;&lt;/i&gt;
+&lt;/center&gt;
+
+
+```
+## 1
+```
+&lt;p&gt;&lt;/p&gt;
+
+:::
+
+::: item 
+
+````markdown
+```{bash, echo = FALSE}
+date +%B
+```
+````
+&lt;center&gt;
+&lt;i class="fas fa-arrow-down"&gt;&lt;/i&gt;
+&lt;/center&gt;
+
+
+```
+## September
+```
+&lt;p&gt;&lt;/p&gt;
+::::
+
+::::
+
+---
+
+class: question middle
+
+Can you name some other engines?
+
+Hint: https://yihui.name/knitr/demo/engines/
+
+
+---
+
+::: pad10
+
+# Inline R Commands
+
+
+```markdown
+Today's date is `r Sys.Date()`.
+```
+
+Today's date is 2019-09-23.
+
+```markdown
+The value of $\pi$ is `r pi`.
+```
+
+The value of `\(\pi\)` is 3.1415927.
+
+* Note: the inline command do not work with other engines.
+
+
+* Inline command does *not* `echo` and always `eval`uates.
+
+&lt;p&gt;&lt;/p&gt;
+
+:::
+
+
 ---
 
 
-```r
-checklist &lt;- c("Make a html document from .Rmd",
-               "Make a pdf document from .Rmd")
+
+# YAML - YAML Ain't Markup Language
+
+:::: grid
+
+::: item 
+
+Basic format
+```markdown
+---
+key: value
+---
 ```
+:::
+
+::: item 
+
+Example
+
+```
+---
+title: "Communicating with Data via R Markdown"
+subtitle: "Reproducible Reports"
+author: "Emi Tanaka"
+date: "`r Sys.Date()`"
+output: html_document
+---
+```
+
+There must be a space after "`:`"!
+&lt;p&gt;&lt;/p&gt;
+:::
+
+:::
+
+---
+
+# Metadata
+
+All YAML data are stored in `rmarkdown::metadata` as list.
+
+
+```r
+rmarkdown::metadata$title
+```
+
+```
+## [1] "Communicating with Data via R markdown"
+```
+
+```r
+rmarkdown::metadata$author
+```
+
+```
+## [1] "Emi Tanaka"
+```
+
+---
+
+class: font_small
+
+# Default (minimal) html output
+
+```
+&lt;!DOCTYPE html&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+
+&lt;head&gt;
+&lt;meta name="author" content="Emi Tanaka" /&gt;
+&lt;meta name="date" content="2019-10-04" /&gt;
+&lt;title&gt;Communicating with Data via R Markdown&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;h1 class="title toc-ignore"&gt;Communicating with Data via R Markdown&lt;/h1&gt;
+&lt;h3 class="subtitle"&gt;Reproducible Reports&lt;/h3&gt;
+&lt;h4 class="author"&gt;Emi Tanaka&lt;/h4&gt;
+&lt;h4 class="date"&gt;2019-10-04&lt;/h4&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+```
+&lt;p&gt;&lt;/p&gt;
+
+::: { .bubble1 .pos width:300px;left:70%;top:48%;}
+
+html meta data
+
+:::
+
+::: { .bubble1 .pos width:650px;left:43%;top:75%;}
+
+Default html template add special YAML key values to file automatically
+
+:::
+
+::: {.pos top:10px; right:200px;}
+output&lt;br&gt;
+&lt;img src = "images/minimal-html-output.png" width = "250px" style="border: solid 3px black;"/&gt;
+
+:::
+
+---
+
+::: pad10
+
+# YAML structure
+
+* White spaces indicate structure in YAML - don't use tabs though!
+* Same as R, you can comment lines by starting with `#`.
+* YAML is case sensitive.
+* A `key` can hold multiple values. 
+
+```markdown
+key: 
+  - value 1
+  - value 2
+```
+
+```markdown
+key: [value 1, value 2]
+```
+
+:::
+
+---
+
+class: font_small
+
+# YAML with multiple key values
+
+```
+---
+title: "Communicating with Data via R Markdown"
+author: 
+ - "Emi Tanaka"
+ - "Accomplice"
+output: html_document
+---
+```
+
+```
+&lt;body&gt;
+&lt;h1 class="title toc-ignore"&gt;Communicating with Data via R Markdown&lt;/h1&gt;
+&lt;h4 class="author"&gt;Emi Tanaka&lt;/h4&gt;
+*&lt;h4 class="author"&gt;Accomplice&lt;/h4&gt; 
+&lt;/body&gt;
+```
+
+&lt;p&gt;&lt;/p&gt;
+
+::: {.pos top:10px; right:200px;}
+output&lt;br&gt;
+&lt;img src = "images/minimal-html-output2.png" width = "250px" style="border: solid 3px black;"/&gt;
+
+:::
+
+
+---
+
+class: question
+
+
+::: {text-align: left;}
+
+# `key` can contain `key`s
+
+
+```
+---
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+```
+&lt;p&gt;&lt;/p&gt;
+What does this do?
+
+:::
+
+(Note: white spacing is important)
+
+---
+
+class: font_small
+
+# Values spanning multiple lines
+
+```markdown
+---
+title: &gt;
+  this is a\ 
+  single line\
+  
+abstract: |
+  this value spans\
+  many lines and\
+  appears as it is\
+  
+output: pdf_document
+---
+
+`r rmarkdown::metadata$title`
+`r rmarkdown::metadata$abstract`
+```
+
+::: {.pos top:100px; right:50px;}
+output&lt;br&gt;
+&lt;img src = "images/minimal-pdf-output.png" width = "800px" style="border: solid 3px black;"/&gt;
+
+:::
+
+---
+
+# Parametrized Report
+
+---
+
+# Citations
+
+---
+
+# Cross Reference
+
+---
+
+# Templating
+
+
+
+---
+
+
 
 
 
@@ -340,11 +580,13 @@ Emi Tanaka
 
 :::
 
-::: {.item .shade_black .animated .slideInRight border-left-style: solid; border-right-color: white;}
+::: {.item .shade_black .checklist .animated .slideInRight border-left-style: solid; border-right-color: white;}
 
 # Check that you can:
 
-🔳 Make a html document from .Rmd&lt;br&gt;🔳 Make a pdf document from .Rmd
+&lt;ul&gt;
+&lt;li&gt;Understand how YAML changes .Rmd&lt;/li&gt;&lt;li&gt;Understand how to manipulate chunks in .Rmd&lt;/li&gt;&lt;li&gt;Change figure sizes in .Rmd&lt;/li&gt;
+&lt;/ul&gt;
 
 :::
 

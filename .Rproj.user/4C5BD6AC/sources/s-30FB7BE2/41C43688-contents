@@ -1,6 +1,6 @@
 ---
 title: "Communicating with Data via R markdown"
-subtitle: "   💭  Introduction  💬    "
+subtitle: "R Markdown Basics"
 author: "Emi Tanaka"
 email: "dr.emi.tanaka@gmail.com"
 date: "4th October 2019 | COMBINE | Sydney, Australia"
@@ -10,7 +10,7 @@ titleslide_bgimg: "images/bg2.jpg"
 color_theme: "white"
 output:
   xaringan::moon_reader:
-    css: [ninjutsu, "assets/animate.css", "assets/cssgrid.css", "assets/custom.css", ]
+    css: [ninjutsu, "assets/animate.css", "assets/cssgrid.css", "assets/custom.css"]
     self_contained: false # if true, fonts will be stored locally
     seal: false # show a title slide with YAML information
     #yolo: false # show Karl randomly
@@ -27,7 +27,7 @@ output:
       # autoplay: 100 # in milliseconds to play next slide
       # coundown: 100 # to display on each slide (TRUE if autoplay on)
       # titleSlideClass: c("center", "middle", "inverse")
-      highlightStyle: github # [arta, ascetic, dark, default, far, github, googlecode, idea, ir-black, magula, monokai, rainbow, solarized-dark, solarized-light, sunburst, tomorrow, tomorrow-night-blue, tomorrow-night-bright, tomorrow-night, tomorrow-night-eighties, vs, zenburn.]
+      highlightStyle: dark # [arta, ascetic, dark, default, far, github, googlecode, idea, ir-black, magula, monokai, rainbow, solarized-dark, solarized-light, sunburst, tomorrow, tomorrow-night-blue, tomorrow-night-bright, tomorrow-night, tomorrow-night-eighties, vs, zenburn.]
       highlightLanguage: r # no-highlight to disable
       highlightLines: true
       highlightSpans: false # true: use `backticks` as delimiters.
@@ -48,43 +48,480 @@ output:
 ```
 ---
 
-class: middle center
+class:  question
 
+::: {.item text-align:left; }
 
-# Hi! I'm Emi! `r emo::ji("wave")`
+**Hi! I'm Emi! `r emo::ji("wave")`**
 
 I'm a lecturer in statistics at The University of Sydney (soon moving to Monash University). 
 
+ **Introduce yourself to your neightbour!**
 
+:::
 
-* Introduce and talk to your neighbour.
-* Sticky notes system to ask for help.
-
-
----
-
-
+`r countdown::countdown(3, font_size = "1.5em", color_background="white", color_text = "black", color_border="black")`
 
 
 ---
 
-class: middle, center
+
+class: question
+
+HELP!
+
+<img src="images/sticky-note.png" width="150px"/>
+
+
+Please send SOS signal by attaching sticky note on your laptop.
+
+
+Please help your neighbours `r emo::ji("please")`
+
+---
+
+class: center
 
 # Schedule
 
 | Time          | Activity                                |
 |:--------------|:----------------------------------------|
-| 01:00 - 01:20 | Session 1: Introduction          |
-| 01:20 - 03:00 | *Break* `r emo::ji("tea")`           |
-| 01:30 - 03:00 | Session 2: Reproducible Reports           |
-| 3:00pm - 3:30pm | Afternoon Tea `r paste0(emo::ji("coffee"), emo::ji("cake"))`              |
-| 3:30pm - 5:00pm | Session 3: Pretty Presentations  |
+| 1:00PM - 1:25PM | Session 1: R Markdown Basics          |
+| 1:25PM - 1:30PM | *Break* `r emo::ji("tea")`           |
+| 1:30PM - 3:00PM | Session 2: Reproducible Reports           |
+| 3:00PM - 3:30PM | *Afternoon Tea* `r paste0(emo::ji("coffee"), emo::ji("cake"))`              |
+| 3:30PM - 5:00PM | Session 3: Pretty Presentations  |
 
 
 ---
 
-```{r checklist}
-checklist <- c("Do this")
+# R Markdown Basics
+
+::: {.grid grid: 1fr / 600px 50px; } 
+
+::: item 
+
+<img src="images/first-rmarkdown-code.png" width="600px" style="border: solid 1px black;" />
+
+:::
+
+::: item 
+
+:::
+
+:::
+
+::: {.pos width:45px; border: solid 2px red;top:25%;left:18%; height:25px;}
+:::
+
+::: {.pos color:red;top:13%;left:16.5%;width:1000px;}
+
+File extension is Rmd
+
+:::
+
+
+::: { .bubble1 .pos width:600px;left:40%;top:35%;}
+
+YAML: meta data fenced by `---`
+
+:::
+
+::: { .bubble1 .pos width:550px;left:53%;top:60%;}
+
+Text: can use `markdown` syntax
+
+:::
+
+::: { .bubble1 .pos width:550px;left:28%;top:80%; }
+
+Code chunk fenced by ` ``` `
+
+:::
+
+---
+
+# Knitting: <code>Rmd</code> <i class="far fa-file"></i>&nbsp; <i class="fas fa-arrow-right"></i>&nbsp;<code>md</code> <i class="far fa-file"></i>&nbsp;<i class="fas fa-arrow-right"></i> &nbsp;<code>html</code> <i class="far fa-file"></i>
+
+::: {.grid grid: 1fr / 600px 100px 600px; } 
+
+::: item 
+
+<img src="images/first-rmarkdown-code.png" width="550px" style="border: solid 1px black;" />
+
+:::
+
+::: item 
+
+<br><br>
+<i class="fas fa-arrow-alt-circle-right" style="font-size: 3em;"></i>
+
+:::
+
+::: item 
+
+<pre>first-rmarkdown.html</pre>
+
+<img src="images/first-rmarkdown-output.png" width="400px" style="border: solid 1px black;" />
+
+:::
+
+:::
+
+::: {.pos width:66px; border: solid 4px red;top:30%;left:23%; height:25px;}
+:::
+
+::: {.pos top:25%;left:25%; height:25px;}
+`r anicon::faa("arrow-down", animate="vertical", color="red")`
+<p></p>
+:::
+
+
+---
+
+
+# Knitting: <code>Rmd</code> <i class="far fa-file"></i>&nbsp; <i class="fas fa-arrow-right"></i>&nbsp;<code>md</code> <i class="far fa-file"></i>&nbsp;<i class="fas fa-arrow-right"></i> &nbsp;<code>pdf</code> <i class="far fa-file"></i>
+
+::: {.grid grid: 1fr / 600px 100px 600px; } 
+
+::: item 
+
+<img src="images/second-rmarkdown-code.png" width="548px" style="border: solid 1px black;" />
+
+:::
+
+::: item 
+
+<br><br>
+<i class="fas fa-arrow-alt-circle-right" style="font-size: 3em;"></i>
+
+:::
+
+::: item 
+
+<pre>first-rmarkdown.pdf</pre>
+
+<img src="images/second-rmarkdown-output.png" width="400px" style="border: solid 1px black;" />
+
+:::
+
+:::
+
+::: {.pos width:66px; border: solid 4px red;top:31%;left:23%; height:25px;}
+:::
+
+::: {.pos top:23.5%;left:25%; height:25px;}
+
+`r anicon::faa("arrow-down", animate="vertical", color="red")`
+
+:::
+
+---
+
+
+
+class: middle question
+
+
+There are many other .yellow[output formats] possible with R Markdown via Pandoc.
+
+Can you name another 3?
+
+`r countdown::countdown(1, font_size = "1.5em", color_background="white", color_text = "black", color_border="black")`
+
+---
+
+class: font_small
+
+# R Markdown under the hood: `html_document` part 1
+
+`knitr` `r emo::ji("package")` does the hard work of converting <code>Rmd</code> <i class="far fa-file"></i>&nbsp; <i class="fas fa-arrow-right"></i>&nbsp;<code>md</code> <i class="far fa-file"></i>
+::: grid 
+
+::: item 
+
+````markdown
+---
+title: "My Report"
+output: html_document
+---
+
+# Hello
+
+`r ''````{r}
+1 + 1
+```
+
+
+````
+<p></p>
+
+::: 
+
+::: item 
+
+````markdown
+---
+title: "My Report"
+output: html_document
+---
+
+# Hello
+
+`r ''````r
+1 + 1
+```
+
+`r ''````
+## [1] 2
+```
+
+````
+
+<p></p>
+
+:::
+
+:::
+
+::: {.pos top:30%;left:20%;}
+`Rmd` <i class="far fa-file"></i>
+:::
+::: {.pos top:30%;left:70%;}
+`md` <i class="far fa-file"></i>
+:::
+
+
+---
+
+class: font_small
+
+# R Markdown under the hood: `html_document` part 2
+
+Then `rmarkdown` `r emo::ji("package")` prepares <code>md</code> <i class="far fa-file"></i> for `pandoc` to convert to html <i class="far fa-file"></i>.
+::: grid 
+
+
+::: item 
+
+````markdown
+---
+title: "My Report"
+output: html_document
+---
+
+# Hello
+
+`r ''````r
+1 + 1
+```
+
+`r ''````
+## [1] 2
+```
+
+````
+
+<p></p>
+
+:::
+
+::: item 
+
+```html
+
+<body>
+<div class="container-fluid main-container">
+<div class="fluid-row" id="header">
+<h1 class="title toc-ignore">My Report</h1>
+</div>
+<div id="hello" class="section level1">
+<h1>Hello</h1>
+<pre class="r"><code>1 + 1</code></pre>
+<pre><code>## [1] 2</code></pre>
+</div>
+</div>
+</body>
+```
+
+
+
+:::
+
+:::
+
+
+::: {.white .font_small .pos bottom:2%; right:10%; width:200px;padding:5px;background-color:rgb(256,160,160, 0.3);border: solid 3px black;	}
+<i class="fas  fa-exclamation-triangle"></i> This html file is missing some elements due to restriction of space.
+:::
+
+::: {.pos top:30%;left:20%;}
+`md` <i class="far fa-file"></i>
+:::
+::: {.pos top:30%;left:70%;}
+`html` <i class="far fa-file"></i>
+:::
+
+---
+
+class: font_small
+
+# R Markdown under the hood: .red[`pdf_document`] part 1
+
+Same as before: `knitr` `r emo::ji("package")` converts <code>Rmd</code> <i class="far fa-file"></i>&nbsp; <i class="fas fa-arrow-right"></i>&nbsp;<code>md</code> <i class="far fa-file"></i>
+::: grid 
+
+::: item 
+
+````markdown
+---
+title: "My Report"
+output: pdf_document
+---
+
+# Hello
+
+`r ''````{r}
+1 + 1
+```
+
+
+````
+<p></p>
+
+::: 
+
+::: item 
+
+````markdown
+---
+title: "My Report"
+output: pdf_document
+---
+
+# Hello
+
+`r ''````r
+1 + 1
+```
+
+`r ''````
+## [1] 2
+```
+
+````
+
+<p></p>
+
+:::
+
+:::
+
+::: {.pos top:30%;left:20%;}
+`Rmd` <i class="far fa-file"></i>
+:::
+::: {.pos top:30%;left:70%;}
+`md` <i class="far fa-file"></i>
+:::
+
+---
+
+class: font_small
+
+# R Markdown under the hood: .red[`pdf_document`] part 2
+
+Then `rmarkdown` `r emo::ji("package")` prepares <code>md</code> <i class="far fa-file"></i> for `pandoc` to convert to `tex` <i class="far fa-file"></i> <i class="fas fa-arrow-right"></i> pdf <i class="fas fa-file-pdf"></i>.
+::: grid 
+
+
+::: item 
+
+````markdown
+---
+title: "My Report"
+output: html_document
+---
+
+# Hello
+
+`r ''````r
+1 + 1
+```
+
+`r ''````
+## [1] 2
+```
+
+````
+
+<p></p>
+
+:::
+
+::: item 
+
+```latex
+\begin{document}
+\maketitle
+\hypertarget{hello}{%
+\section{Hello}\label{hello}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1} \OperatorTok{+}\StringTok{ }\DecValTok{1}
+\end{Highlighting}
+\end{Shaded}
+\begin{verbatim}
+## [1] 2
+\end{verbatim}
+\end{document}
+```
+
+
+
+:::
+
+:::
+
+::: {.pos top:30%;left:10%;}
+`md` <i class="far fa-file"></i>
+:::
+::: {.pos top:30%;left:40%;}
+`tex` <i class="far fa-file"></i>
+:::
+
+::: {.white .font_small .pos bottom:2%; right:10%; width:200px;padding:5px;background-color:rgb(256,160,160, 0.3);border: solid 3px black;	}
+<i class="fas  fa-exclamation-triangle"></i> This tex document is missing elements before `\begin{document}` due to restriction of space.
+:::
+
+---
+
+class: challenge middle
+
+#Get started with 
+
+`challenge-01.Rmd`
+
+`r countdown::countdown(5, font_size = "1.5em", color_background="white", color_text = "black", color_border="black")`
+
+---
+
+class: challenge middle
+
+# Advanced question
+
+How do you render different output formats at once?
+
+
+
+
+---
+
+
+```{r checklist, echo = FALSE}
+checklist <- c("Make a html document from .Rmd",
+               "Make a pdf document from .Rmd",
+               "Have some understanding of how R Markdown works under the hood.",
+               "Have some understanding of R Markdown components works only in specific output formats.")
 ```
 
 ```{r endslide, child="endslide.Rmd"}

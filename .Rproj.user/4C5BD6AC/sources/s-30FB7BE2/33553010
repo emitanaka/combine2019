@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "3140925340",
+    "hash" : "0",
     "id" : "33553010",
-    "lastKnownWriteTime" : 1569077113,
-    "last_content_update" : 1569077113259,
+    "lastKnownWriteTime" : 1569135376,
+    "last_content_update" : 1569135376298,
     "path" : "~/Dropbox (Personal)/Workshops/20191004_COMBINE/scripts/challenge-02.Rmd",
     "project_path" : "scripts/challenge-02.Rmd",
     "properties" : {
-        "cursorPosition" : "48,41",
-        "scrollLine" : "36"
+        "cursorPosition" : "350,0",
+        "scrollLine" : "341"
     },
     "read_only" : false,
     "read_only_alternatives" : [

@@ -154,7 +154,7 @@ thead, tfoot, tr:nth-child(even) { background: #eee }
 .question {
   text-align: center;
   font-size: 36pt!important;
-  padding-left:10%;
+  padding-left:17%;
   padding-right:10%;
   background-color:#0066cc;
   background-image: url("../images/question.png");
@@ -173,6 +173,20 @@ thead, tfoot, tr:nth-child(even) { background: #eee }
   color: white;
 }
 
+.challenge {
+  text-align: left;
+  padding-left:20%;
+  font-size: 50pt!important;
+  background-color:#ffa500;
+  background-image: url("../images/coding.png");
+  background-position: 5% 90%;
+  background-size: 150px;
+  color: white;
+}
+
+.challenge h1 {
+  font-size: 55pt!important;
+}
 
 kbd {
     background-color: #eee;
@@ -190,4 +204,28 @@ kbd {
 
 .remark-code {
   font-size: 24pt;
+}
+
+.font_small .remark-code {
+  font-size: 18pt;
+}
+
+.question a {
+  color: white;
+}
+
+.info code {
+  color: yellow;
+}
+
+li{
+  margin: 10px 0;
+}
+
+.checklist ul li::before {
+  content: "☑";
+}
+
+.pad10 {
+  padding: 20px;
 }

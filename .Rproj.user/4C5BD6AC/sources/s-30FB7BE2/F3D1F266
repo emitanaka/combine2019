@@ -7,13 +7,13 @@
     "folds" : "",
     "hash" : "0",
     "id" : "F3D1F266",
-    "lastKnownWriteTime" : 1569054462,
-    "last_content_update" : 1569054462357,
+    "lastKnownWriteTime" : 1569214361,
+    "last_content_update" : 1569214361570,
     "path" : "~/Dropbox (Personal)/Workshops/20191004_COMBINE/scripts/challenge-01.Rmd",
     "project_path" : "scripts/challenge-01.Rmd",
     "properties" : {
-        "cursorPosition" : "28,70",
-        "scrollLine" : "24"
+        "cursorPosition" : "36,0",
+        "scrollLine" : "28"
     },
     "read_only" : false,
     "read_only_alternatives" : [

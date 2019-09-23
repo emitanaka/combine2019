@@ -25,11 +25,13 @@ Emi Tanaka
 
 :::
 
-::: {.item .shade_black .animated .slideInRight border-left-style: solid; border-right-color: white;}
+::: {.item .shade_black .checklist .animated .slideInRight border-left-style: solid; border-right-color: white;}
 
 # Check that you can:
 
-`r paste0(paste0("\U0001f533 ", checklist), collapse="<br>")`
+<ul>
+`r glue::glue_collapse(paste0("<li>", checklist, "</li>"))`
+</ul>
 
 :::
 

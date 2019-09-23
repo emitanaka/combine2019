@@ -6,7 +6,7 @@ email: "dr.emi.tanaka@gmail.com"
 date: "4th October 2019 | COMBINE | Sydney, Australia"
 length: "90 minutes"
 pdflink: "link"
-titleslide_bgimg: "images/phaelenopsis.jpg"
+titleslide_bgimg: "images/bg3.jpg"
 color_theme: "#FC427B"
 output:
   xaringan::moon_reader:

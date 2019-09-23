@@ -48,137 +48,33 @@ library(tidyverse)
 ```
 ---
 
-# R Markdown Basics
-
-::: {.grid grid: 1fr / 600px 50px; } 
-
-::: item 
-
-<img src="images/first-rmarkdown-code.png" width="600px" style="border: solid 1px black;" />
-
-:::
-
-::: item 
-
-:::
-
-:::
-
-::: {.pos width:45px; border: solid 2px red;top:25%;left:18%; height:25px;}
-:::
-
-::: {.pos color:red;top:13%;left:16.5%;width:1000px;}
-
-File extension is Rmd
-
-:::
 
 
-::: { .bubble1 .pos width:600px;left:40%;top:35%;}
+class: question middle 
 
-YAML: meta data fenced by `---`
+R Markdown is such an *indispensible tool* for making documents, especially if you have plan to *include statistical output*.
 
-:::
 
-::: { .bubble1 .pos width:550px;left:53%;top:60%;}
-
-Text: can use `markdown` syntax
-
-:::
-
-::: { .bubble1 .pos width:550px;left:28%;top:80%; }
-
-Code chunk fenced by ` ``` `
-
-:::
+How do you use (or plan to use) <br>R Markdown?
 
 ---
 
-# Knitting: <code>Rmd</code> <i class="far fa-file"></i>&nbsp; <i class="fas fa-arrow-right"></i>&nbsp;<code>md</code> <i class="far fa-file"></i>&nbsp;<i class="fas fa-arrow-right"></i> &nbsp;<code>html</code> <i class="far fa-file"></i>
+class: info
 
-::: {.grid grid: 1fr / 600px 100px 600px; } 
+# People that made R Markdown possible
 
-::: item 
-
-<img src="images/first-rmarkdown-code.png" width="550px" style="border: solid 1px black;" />
-
-:::
-
-::: item 
-
-<br><br>
-<i class="fas fa-arrow-alt-circle-right" style="font-size: 3em;"></i>
-
-:::
-
-::: item 
-
-<pre>first-rmarkdown.html</pre>
-
-<img src="images/first-rmarkdown-output.png" width="400px" style="border: solid 1px black;" />
-
-:::
-
-:::
-
-::: {.pos width:66px; border: solid 4px red;top:30%;left:23%; height:25px;}
-:::
-
-::: {.pos top:25%;left:25%; height:25px;}
-`r anicon::faa("arrow-down", animate="vertical", color="red")`
-<p></p>
-:::
+The development of R Markdown is largely thanks to
 
 
----
+
+* Yihui Xie <br>*Software Engineer at RStudio*<br> for `knitr`
 
 
-# Knitting: <code>Rmd</code> <i class="far fa-file"></i>&nbsp; <i class="fas fa-arrow-right"></i>&nbsp;<code>md</code> <i class="far fa-file"></i>&nbsp;<i class="fas fa-arrow-right"></i> &nbsp;<code>pdf</code> <i class="far fa-file"></i>
-
-::: {.grid grid: 1fr / 600px 100px 600px; } 
-
-::: item 
-
-<img src="images/second-rmarkdown-code.png" width="548px" style="border: solid 1px black;" />
-
-:::
-
-::: item 
-
-<br><br>
-<i class="fas fa-arrow-alt-circle-right" style="font-size: 3em;"></i>
-
-:::
-
-::: item 
-
-<pre>first-rmarkdown.pdf</pre>
-
-<img src="images/second-rmarkdown-output.png" width="400px" style="border: solid 1px black;" />
-
-:::
-
-:::
-
-::: {.pos width:66px; border: solid 4px red;top:31%;left:23%; height:25px;}
-:::
-
-::: {.pos top:23.5%;left:25%; height:25px;}
-
-`r anicon::faa("arrow-down", animate="vertical", color="red")`
-
-:::
-
----
-
-class: middle question
+* John MacFarlane <br>*Professor of Philosophy at UC Berkeley*<br> for `pandoc`
 
 
-There are many other .yellow[output formats] possible with R Markdown via Pandoc.
+* and many contributors behind the development of these tools.
 
-Can you name another 3?
-
-`r countdown::countdown(1, font_size = "1.5em", color_background="white", color_text = "black", color_border="black")`
 
 ---
 
@@ -272,12 +168,27 @@ Can you name 5 other ones?
 
 Hint: https://yihui.name/knitr/options/
 
-(We'll explore these later.)
+(We'll explore some later)
 
 
 ---
 
-# Chunk names
+class: info
+
+# Valid chunk options
+
+* Chunk options must be written in **one line**, i.e. no line break. 
+
+
+* All option values must be **valid R expressions**. Exception is the chunk name. E.g.
+   * `fig.path = figures/` is not valid but <br>`fig.path = "figures/"` is valid
+   * `eval = true` is not valid but<br> `eval = runif(1) > 0.5` is valid
+
+---
+
+class: info
+
+# Chunk names (or labels)
 
 The chunk below is called `plot1`.
 ````markdown
@@ -286,11 +197,332 @@ ggplot(cars, aes(dist, speed)) + geom_point()
 ```
 ````
 
+All chunks have a label regardless of whether it is explicitly supplied or not.
+
+All chunks without explicit name has labels with prefix `unnamed-chunk-`.
+
 ---
 
-```{r checklist}
-checklist <- c("Make a html document from .Rmd",
-               "Make a pdf document from .Rmd")
+class: challenge middle
+
+# Try your best going through 
+
+`challenge-02.Rmd`
+
+`r countdown::countdown(20, font_size = "1.5em", color_background="white", color_text = "black", color_border="black")`
+
+---
+
+# R Markdown is not just for R
+
+::: grid 
+
+::: item 
+
+````markdown
+`r ''````{python, echo = FALSE}
+a = [1, 2, 3]
+a[0]
+```
+````
+
+<center>
+<i class="fas fa-arrow-down"></i>
+</center>
+
+```{python, echo = FALSE}
+a = [1, 2, 3]
+a[0]
+```
+<p></p>
+
+:::
+
+::: item 
+
+````markdown
+`r ''````{bash, echo = FALSE}
+date +%B
+```
+````
+<center>
+<i class="fas fa-arrow-down"></i>
+</center>
+
+```{bash, echo = FALSE}
+date +%B
+```
+<p></p>
+::::
+
+::::
+
+---
+
+class: question middle
+
+Can you name some other engines?
+
+Hint: https://yihui.name/knitr/demo/engines/
+
+
+---
+
+::: pad10
+
+# Inline R Commands
+
+
+```markdown
+Today's date is ``r "r Sys.Date()"``.
+```
+
+Today's date is `r Sys.Date()`.
+
+```markdown
+The value of $\pi$ is ``r "r pi"``.
+```
+
+The value of $\pi$ is `r pi`.
+
+* Note: the inline command do not work with other engines.
+
+
+* Inline command does *not* `echo` and always `eval`uates.
+
+<p></p>
+
+:::
+
+
+---
+
+
+
+# YAML - YAML Ain't Markup Language
+
+:::: grid
+
+::: item 
+
+Basic format
+```markdown
+---
+key: value
+---
+```
+:::
+
+::: item 
+
+Example
+
+```
+---
+title: "Communicating with Data via R Markdown"
+subtitle: "Reproducible Reports"
+author: "Emi Tanaka"
+date: "``r "r Sys.Date()"``"
+output: html_document
+---
+```
+
+There must be a space after "`:`"!
+<p></p>
+:::
+
+:::
+
+---
+
+# Metadata
+
+All YAML data are stored in `rmarkdown::metadata` as list.
+
+```{r}
+rmarkdown::metadata$title
+rmarkdown::metadata$author
+```
+
+---
+
+class: font_small
+
+# Default (minimal) html output
+
+```
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta name="author" content="Emi Tanaka" />
+<meta name="date" content="2019-10-04" />
+<title>Communicating with Data via R Markdown</title>
+</head>
+
+<body>
+<h1 class="title toc-ignore">Communicating with Data via R Markdown</h1>
+<h3 class="subtitle">Reproducible Reports</h3>
+<h4 class="author">Emi Tanaka</h4>
+<h4 class="date">2019-10-04</h4>
+</body>
+</html>
+```
+<p></p>
+
+::: { .bubble1 .pos width:300px;left:70%;top:48%;}
+
+html meta data
+
+:::
+
+::: { .bubble1 .pos width:650px;left:43%;top:75%;}
+
+Default html template add special YAML key values to file automatically
+
+:::
+
+::: {.pos top:10px; right:200px;}
+output<br>
+<img src = "images/minimal-html-output.png" width = "250px" style="border: solid 3px black;"/>
+
+:::
+
+---
+
+::: pad10
+
+# YAML structure
+
+* White spaces indicate structure in YAML - don't use tabs though!
+* Same as R, you can comment lines by starting with `#`.
+* YAML is case sensitive.
+* A `key` can hold multiple values. 
+
+```markdown
+key: 
+  - value 1
+  - value 2
+```
+
+```markdown
+key: [value 1, value 2]
+```
+
+:::
+
+---
+
+class: font_small
+
+# YAML with multiple key values
+
+```
+---
+title: "Communicating with Data via R Markdown"
+author: 
+ - "Emi Tanaka"
+ - "Accomplice"
+output: html_document
+---
+```
+
+```
+<body>
+<h1 class="title toc-ignore">Communicating with Data via R Markdown</h1>
+<h4 class="author">Emi Tanaka</h4>
+*<h4 class="author">Accomplice</h4> 
+</body>
+```
+
+<p></p>
+
+::: {.pos top:10px; right:200px;}
+output<br>
+<img src = "images/minimal-html-output2.png" width = "250px" style="border: solid 3px black;"/>
+
+:::
+
+
+---
+
+class: question
+
+
+::: {text-align: left;}
+
+# `key` can contain `key`s
+
+
+```
+---
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+```
+<p></p>
+What does this do?
+
+:::
+
+(Note: white spacing is important)
+
+---
+
+class: font_small
+
+# Values spanning multiple lines
+
+```markdown
+---
+title: >
+  this is a\ 
+  single line\
+  
+abstract: |
+  this value spans\
+  many lines and\
+  appears as it is\
+  
+output: pdf_document
+---
+
+``r "r rmarkdown::metadata$title"``
+``r "r rmarkdown::metadata$abstract"``
+```
+
+::: {.pos top:100px; right:50px;}
+output<br>
+<img src = "images/minimal-pdf-output.png" width = "800px" style="border: solid 3px black;"/>
+
+:::
+
+---
+
+# Parametrized Report
+
+---
+
+# Citations
+
+---
+
+# Cross Reference
+
+---
+
+# Templating
+
+
+
+---
+
+```{r checklist, echo = FALSE}
+checklist <- c("Understand how YAML changes .Rmd",
+               "Understand how to manipulate chunks in .Rmd",
+               "Change figure sizes in .Rmd")
 ```
 ```{r endslide, child="endslide.Rmd"}
 ```
