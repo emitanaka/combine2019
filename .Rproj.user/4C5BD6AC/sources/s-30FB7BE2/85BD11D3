@@ -7,13 +7,13 @@
     "folds" : "",
     "hash" : "0",
     "id" : "85BD11D3",
-    "lastKnownWriteTime" : 1569227695,
-    "last_content_update" : 1569227695395,
+    "lastKnownWriteTime" : 1569230115,
+    "last_content_update" : 1569230115175,
     "path" : "~/Dropbox (Personal)/Workshops/20191004_COMBINE/slides/1-reproducible-reports.Rmd",
     "project_path" : "slides/1-reproducible-reports.Rmd",
     "properties" : {
-        "cursorPosition" : "523,47",
-        "scrollLine" : "514"
+        "cursorPosition" : "447,0",
+        "scrollLine" : "578"
     },
     "read_only" : false,
     "read_only_alternatives" : [

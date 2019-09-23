@@ -210,6 +210,10 @@ kbd {
   font-size: 18pt;
 }
 
+.font_smaller .remark-code {
+  font-size: 16pt;
+}
+
 .question a {
   color: white;
 }

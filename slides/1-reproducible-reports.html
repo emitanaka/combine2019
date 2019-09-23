@@ -226,7 +226,7 @@ class: challenge middle
 
 `challenge-02.Rmd`
 
-<div class="countdown" id="timer_5d8886d6" style="right:0;bottom:0;font-size:1.5em;">
+<div class="countdown" id="timer_5d888d5d" style="right:0;bottom:0;font-size:1.5em;">
 <code><span class="digits minutes">20</span><span class="digits colon">:</span><span class="digits seconds">00</span></code>
 </div>
 
@@ -533,6 +533,8 @@ output&lt;br&gt;
 
 ---
 
+class: font_small
+
 # Parametrized Report
 
 ````markdown
@@ -546,14 +548,116 @@ params:
 library(tidyverse)
 iris %&gt;% 
 *  filter(Species==params$species) %&gt;% 
-  ggplot(aes(Sepal.Length, Sepal.Width)) +
-  geom_point(aes(color=Species))
+   ggplot(aes(Sepal.Length, Sepal.Width)) +
+   geom_point(aes(color=Species))
 ```
 ````
 
-::: {.pos top:100px; right:50px;}
+::: {.pos top:10px; right:10px;}
 output&lt;br&gt;
-&lt;img src = "images/parameterised-report-eg1.png" width = "800px" style="border: solid 3px black;"/&gt;
+&lt;img src = "images/parameterised-report-eg1.png" width = "550px" style="border: solid 3px black;"/&gt;
+
+:::
+
+---
+
+class: font_smaller
+
+::: grid
+::: item 
+# Knit with Parameters
+```markdown
+---
+title: "Parameterized Report"
+params:
+  species: 
+    label: "Species"
+    value: setosa
+    input: select
+    choices: [setosa, versicolor, virginica]
+  color: red
+  max:
+    label: "Maximum Sepal Width"
+    value: 4
+    input: slider
+    min: 4
+    max: 5
+    step: 0.1
+---
+```
+
+:::
+
+::: item 
+
+&lt;img src = "images/knit-with-params.png" width = "300px" style="border: solid 3px black;"/&gt;
+
+````markdown
+```{r, message = params$printmsg, fig.dim = c(3,2)}
+library(tidyverse)
+iris %&gt;% 
+  filter(Species==params$species) %&gt;% 
+  filter(Sepal.Width &lt; params$max) %&gt;% 
+  ggplot(aes(Sepal.Length, Sepal.Width)) +
+  geom_point(aes(color=Species), 
+             color = params$color)
+```
+````
+
+
+
+:::
+
+:::
+
+---
+
+class: font_smaller
+
+::: grid
+::: item 
+# Shiny Report Generator
+```markdown
+---
+title: "Parameterized Report"
+params:
+  species: 
+    label: "Species"
+    value: setosa
+    input: select
+    choices: [setosa, versicolor, virginica]
+  color: red
+  max:
+    label: "Maximum Sepal Width"
+    value: 4
+    input: slider
+    min: 4
+    max: 5
+    step: 0.1
+---
+```
+
+:::
+
+::: item 
+
+# &amp;nbsp;
+
+&lt;img src = "images/shiny-params.png" width = "100%" style="border: solid 3px black;"/&gt;
+
+
+:::
+
+:::
+
+
+
+
+---
+
+::: {.pos top:10px; right:10px;}
+output&lt;br&gt;
+
 
 :::
 
