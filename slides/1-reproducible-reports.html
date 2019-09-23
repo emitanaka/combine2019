@@ -226,7 +226,7 @@ class: challenge middle
 
 `challenge-02.Rmd`
 
-<div class="countdown" id="timer_5d887a9b" style="right:0;bottom:0;font-size:1.5em;">
+<div class="countdown" id="timer_5d8886d6" style="right:0;bottom:0;font-size:1.5em;">
 <code><span class="digits minutes">20</span><span class="digits colon">:</span><span class="digits seconds">00</span></code>
 </div>
 
@@ -499,7 +499,7 @@ What does this do?
 
 :::
 
-(Note: white spacing is important)
+(Note: white space is important)
 
 ---
 
@@ -535,7 +535,36 @@ output&lt;br&gt;
 
 # Parametrized Report
 
+````markdown
 ---
+title: "Parameterized Report"
+params:
+  species: setosa
+---
+
+```{r, message = FALSE, fig.dim = c(3,2)}
+library(tidyverse)
+iris %&gt;% 
+*  filter(Species==params$species) %&gt;% 
+  ggplot(aes(Sepal.Length, Sepal.Width)) +
+  geom_point(aes(color=Species))
+```
+````
+
+::: {.pos top:100px; right:50px;}
+output&lt;br&gt;
+&lt;img src = "images/parameterised-report-eg1.png" width = "800px" style="border: solid 3px black;"/&gt;
+
+:::
+
+---
+
+# Templates
+
+
+
+---
+
 
 # Citations
 
@@ -545,11 +574,6 @@ output&lt;br&gt;
 
 ---
 
-# Templating
-
-
-
----
 
 
 

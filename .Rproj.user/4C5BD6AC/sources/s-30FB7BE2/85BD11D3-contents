@@ -467,7 +467,7 @@ What does this do?
 
 :::
 
-(Note: white spacing is important)
+(Note: white space is important)
 
 ---
 
@@ -503,7 +503,36 @@ output<br>
 
 # Parametrized Report
 
+````markdown
 ---
+title: "Parameterized Report"
+params:
+  species: setosa
+---
+
+`r ''````{r, message = FALSE, fig.dim = c(3,2)}
+library(tidyverse)
+iris %>% 
+*  filter(Species==params$species) %>% 
+  ggplot(aes(Sepal.Length, Sepal.Width)) +
+  geom_point(aes(color=Species))
+```
+````
+
+::: {.pos top:100px; right:50px;}
+output<br>
+<img src = "images/parameterised-report-eg1.png" width = "800px" style="border: solid 3px black;"/>
+
+:::
+
+---
+
+# Templates
+
+
+
+---
+
 
 # Citations
 
@@ -513,11 +542,6 @@ output<br>
 
 ---
 
-# Templating
-
-
-
----
 
 ```{r checklist, echo = FALSE}
 checklist <- c("Understand how YAML changes .Rmd",

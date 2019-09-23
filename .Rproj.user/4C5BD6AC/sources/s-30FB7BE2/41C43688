@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "1108499130",
     "id" : "41C43688",
-    "lastKnownWriteTime" : 1569225732,
-    "last_content_update" : 1569225732519,
+    "lastKnownWriteTime" : 1569226107,
+    "last_content_update" : 1569226107520,
     "path" : "~/Dropbox (Personal)/Workshops/20191004_COMBINE/slides/0-introduction.Rmd",
     "project_path" : "slides/0-introduction.Rmd",
     "properties" : {
-        "cursorPosition" : "419,29",
-        "scrollLine" : "417"
+        "cursorPosition" : "523,52",
+        "scrollLine" : "518"
     },
     "read_only" : false,
     "read_only_alternatives" : [

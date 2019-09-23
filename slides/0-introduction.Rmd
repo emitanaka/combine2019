@@ -521,7 +521,7 @@ How do you render different output formats at once?
 checklist <- c("Make a html document from .Rmd",
                "Make a pdf document from .Rmd",
                "Have some understanding of how R Markdown works under the hood.",
-               "Have some understanding of R Markdown components works only in specific output formats.")
+               "Have some understanding of how some R Markdown components works only in specific output formats.")
 ```
 
 ```{r endslide, child="endslide.Rmd"}
