@@ -417,10 +417,10 @@ output: pdf_document
 
 :::
 
-::: {.pos top:30%;left:20%;}
+::: { .pos top:30%;left:20%; }
 `Rmd` <i class="far fa-file"></i>
 :::
-::: {.pos top:30%;left:70%;}
+::: { .pos top:30%;left:70%; }
 `md` <i class="far fa-file"></i>
 :::
 
