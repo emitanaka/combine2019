@@ -10,7 +10,7 @@ titleslide_bgimg: "images/bg1.jpg"
 color_theme: "#f9af2b"
 output:
   xaringan::moon_reader:
-    css: [ninjutsu, "assets/animate.css", "assets/cssgrid.css", "assets/custom.css"]
+    css: [ninjutsu, "assets/animate.css", "assets/cssgrid.css", "assets/custom.css", "assets/image_modal.css"]
     self_contained: false # if true, fonts will be stored locally
     seal: false # show a title slide with YAML information
     #yolo: false # show Karl randomly
@@ -18,9 +18,9 @@ output:
     #beforeInit: "assets/custom.js"
     lib_dir: libs
     includes:
-      #in_header: "assets/custom.html"
+      in_header: "assets/custom.html"
       # before_body: 
-      after_body: "assets/remarkjs_extended.html"
+      after_body: ["assets/remarkjs_extended.html", "assets/image_modal.js"]
       # includes
     mathjax: "assets/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
     nature:
@@ -623,15 +623,170 @@ params:
 
 ---
 
-::: {.pos top:10px; right:10px;}
-output<br>
+class: challenge middle
 
+Go through
+
+`challenge-03.Rmd`
+
+`r countdown::countdown(20, font_size = "1.5em", color_background="white", color_text = "black", color_border="black")`
+
+---
+
+# Themes: `html_document`  
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <div id="caption"></div>
+  <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+  <iframe class="modal-content" id="img01"></iframe><br>
+</div>
+
+You can change the look of the html document by specifying themes:
+::: grid 
+
+::: item 
+
+* `default` <img class="modalImg" alt="default"/> 
+* `cerulean` <img class="modalImg" alt="cerulean"/> 
+* `journal`  <img class="modalImg" alt="journal"/> 
+* `flatly` <img class="modalImg" alt="flatly"/> 
+* `darkly` <img class="modalImg" alt="darkly"/> 
+* `readable` <img class="modalImg" alt="readable"/> 
+* `spacelab` <img class="modalImg" alt="spacelab"/> 
+* `united` <img class="modalImg" alt="united"/> 
+
+:::
+
+::: item 
+
+
+* `cosmo` <img class="modalImg" alt="cosmo"/> 
+* `lumen` <img class="modalImg" alt="lumen"/> 
+* `paper` <img class="modalImg" alt="paper"/> 
+* `sandstone` <img class="modalImg" alt="sandstone"/> 
+* `simplex` <img class="modalImg" alt="simplex"/> 
+* `yeti` <img class="modalImg" alt="yeti"/> 
+* `NULL`  <img class="modalImg" alt="null"/> 
+
+:::
+
+::: item 
+
+
+```markdown
+output: 
+  html_document:
+    theme: cerulean
+```
+
+These [bootswatch](https://bootswatch.com/) themes attach the whole bootstrap library which makes your html file size larger.
+
+:::
 
 :::
 
 ---
 
-# Templates
+# `prettydoc` 
+
+<!-- The Modal -->
+<div id="myModal2" class="modal">
+  <div id="caption2"></div>
+  <span class="close" onclick="document.getElementById('myModal2').style.display='none'">&times;</span>
+  <iframe class="modal-content" id="img02"></iframe><br>
+</div>
+
+::: grid 
+
+::: item 
+
+`prettydoc` `r emo::ji('package')` is another community driven template but specification is determined by `theme`:
+
+* `cayman` <img class="modalImg2" alt="cayman"/> 
+* `tactile` <img class="modalImg2" alt="tactile"/> 
+* `architect` <img class="modalImg2" alt="architect"/> 
+* `leonids` <img class="modalImg2" alt="leonids"/> 
+* `hpstr` <img class="modalImg2" alt="hpstr"/> 
+
+
+
+:::
+
+::: item 
+
+
+
+```markdown
+output: 
+  prettydoc::html_pretty:
+    theme: cayman
+```
+
+See more about it below:
+
+https://prettydoc.statr.me/
+
+:::
+
+:::
+
+
+
+
+
+---
+
+# `rmdformats`
+
+<!-- The Modal -->
+<div id="myModal3" class="modal">
+  <div id="caption3"></div>
+  <span class="close" onclick="document.getElementById('myModal3').style.display='none'">&times;</span>
+  <iframe class="modal-content" id="img03"></iframe><br>
+</div>
+
+
+::: grid 
+
+::: item 
+
+`rmdformats` `r emo::ji('package')` contains four built-in `html` formats: 
+
+
+* `readthedown` <img class="modalImg3" alt="readthedown"/> 
+* `html_clean` <img class="modalImg3" alt="html_clean"/> 
+* `html_docco` <img class="modalImg3" alt="html_docco"/> 
+* `material` <img class="modalImg3" alt="material"/> 
+
+:::
+
+::: item 
+
+You can use these formats by simply specifying the output in YAML as below:
+
+
+```markdown
+output: rmdformats::readthedown
+```
+
+See more about it below:
+
+https://github.com/juba/rmdformats
+
+:::
+
+:::
+
+
+
+---
+
+# Templates: `rticles`
+
+---
+
+# Templates: your own?
 
 
 
