@@ -297,7 +297,7 @@ class: challenge middle
 * `challenge-06.Rmd`
 
 
-<div class="countdown" id="timer_5d95a12a" style="right:0;bottom:0;font-size:1.5em;">
+<div class="countdown" id="timer_5d95d6bf" style="right:0;bottom:0;font-size:1.5em;">
 <code><span class="digits minutes">25</span><span class="digits colon">:</span><span class="digits seconds">00</span></code>
 </div>
 
@@ -567,7 +567,7 @@ output: pdf_document
 `r rmarkdown::metadata$abstract`
 ```
 
-::: {.pos top:100px; right:20px;}
+::: {.pos top:80px; right:20px;}
 output&lt;br&gt;
 &lt;img src = "images/minimal-pdf-output.png" width = "800px" style="border: solid 3px black;"/&gt;
 
@@ -577,11 +577,11 @@ output&lt;br&gt;
 
 class: challenge middle
 
-Go through
+# Go through
 
 `challenge-07.Rmd`
 
-<div class="countdown" id="timer_5d959ec3" style="right:0;bottom:0;font-size:1.5em;">
+<div class="countdown" id="timer_5d95d590" style="right:0;bottom:0;font-size:1.5em;">
 <code><span class="digits minutes">10</span><span class="digits colon">:</span><span class="digits seconds">00</span></code>
 </div>
 
@@ -768,12 +768,12 @@ render("demo-render.Rmd",
 
 class: challenge middle
 
-Go through
+# Go through
 
-`challenge-08.Rmd`
+`challenge-08.Rmd` and `challenge-09.Rmd`
 
-<div class="countdown" id="timer_5d95a0fe" style="right:0;bottom:0;font-size:1.5em;">
-<code><span class="digits minutes">05</span><span class="digits colon">:</span><span class="digits seconds">00</span></code>
+<div class="countdown" id="timer_5d95d4ff" style="right:0;bottom:0;font-size:1.5em;">
+<code><span class="digits minutes">10</span><span class="digits colon">:</span><span class="digits seconds">00</span></code>
 </div>
 
 ---
@@ -1095,52 +1095,370 @@ output:
 But nothing written in the body shows up in the output!
 ```
 
+--
+
+You need to add `$body$` in the latex template file where you want the body of the md file to appear. 
+
+---
+
+class: font_smaller pad10
+
+# Templating: few more tweaks
+
+* R Markdown needs a few more special tweaks before `\begin{document}` in latex template:
+
+```latex
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+```
+
+* These are *minimum* tweaks needed for a LaTeX template.
+* You can find common tweaks (including for beamer) at 
+&lt;a href="https://github.com/jgm/pandoc-templates"&gt;https://github.com/jgm/pandoc-templates&lt;/a&gt;
+* You can define your own tweaks but it is better practice to use the ones defined in pandoc template rather than trying to reinvent the wheel.
+
+---
+
+class: font_smaller
+
+# How pandoc template works: `key`
+
+::: grid 
+
+::: item 
+
+`Rmd` &lt;i class="fas fa-file"&gt;&lt;/i&gt;
+
+```markdown
+---
+title: "COMBINE 2019"
+author: "Emi Tanaka"
+output:
+  pdf_document: 
+    template: "template.tex"
+---
+```
+
+YAML meta data can be used by surrounding `key` with $.
+
+:::
+
+::: item 
+
+`template.tex` &lt;i class="fas fa-file"&gt;&lt;/i&gt;
+
+```latex
+
+\documentclass{article}
+\title{$title$}
+\author{$author$}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\end{document}
+
+```
+
+::: {.center font-family:"Computer Modern"!important;}
+
+.font_medium[COMBINE 2019]&lt;br&gt;
+Emi Tanaka
+
+:::
+
+:::
+
+:::
+
+---
+
+class: font_smaller
+
+# How pandoc template works: if statements
+
+::: grid 
+
+::: item 
+
+`Rmd` &lt;i class="fas fa-file"&gt;&lt;/i&gt;
+
+```markdown
+---
+title: "COMBINE 2019"
+author: "Emi Tanaka"
+output:
+  pdf_document: 
+    template: "template.tex"
+---
+```
+
+Simple "if null statements".
+
+:::
+
+::: item 
+
+`template.tex` &lt;i class="fas fa-file"&gt;&lt;/i&gt;
+
+```latex
+
+\documentclass[
+$if(fontsize)$
+$fontsize$,
+$endif$
+]{article}
+\title{$title$}
+\author{$author$}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\end{document}
+
+```
+
+
+:::
+
+:::
+
+---
+
+class: font_smaller
+
+# How pandoc template works: accessing list
+
+::: grid 
+
+::: item 
+
+`Rmd` &lt;i class="fas fa-file"&gt;&lt;/i&gt;
+
+```markdown
+---
+title: "COMBINE 2019"
+author:
+ - name: "Rachel Wang"
+   email: "rachel.wang@sydney.edu.au"
+ - name: "Connor Smith"
+   email: "connor.smith@sydney.edu.au"
+output:
+  pdf_document: 
+    template: "template.tex"
+---
+```
+
+Here it will become 
+
+.font_small[`\author{Rachel Wang \and Connor Smith}`]
+
+:::
+
+::: item 
+
+`template.tex` &lt;i class="fas fa-file"&gt;&lt;/i&gt;
+
+```latex
+
+\documentclass{article}
+\title{$title$}
+\author{
+$for(author)$
+$author.name$$sep$ \and 
+$endfor$
+}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\end{document}
+
+```
+
+
+:::
+
+:::
 
 
 ---
 
 class: challenge middle
 
-Go through
+# Go through
 
-`challenge-09.Rmd`
+`challenge-10.Rmd`
 
-<div class="countdown" id="timer_5d959efb" style="right:0;bottom:0;font-size:1.5em;">
-<code><span class="digits minutes">10</span><span class="digits colon">:</span><span class="digits seconds">00</span></code>
+<div class="countdown" id="timer_5d95d48a" style="right:0;bottom:0;font-size:1.5em;">
+<code><span class="digits minutes">05</span><span class="digits colon">:</span><span class="digits seconds">00</span></code>
 </div>
 
 
 ---
 
-
-# Citations
-
-`bibtex` is a wonderful tool to get citations. 
-You can use these in Rmd too!
-
-[@bibtex-key] -&gt; (Author et al. 2019)
-
-or 
-
-@bibtex-key -&gt; Author et al. 2019
-
----
+class: pad10
 
 # Cross Reference
 
 
+::: grid 
+
+::: item 
+
+* When you make a header via Rmd
+```
+# Some Header
+```
+ an id is created automatically.
+* The id is created by replacing .red[space with `-`] and making it .red[all lower case].
+* Now you can link to this header by `[some text](#some-header)`.
+* Cross references work for both pdf and html outputs.
+
+::: 
+
+::: item 
+
+&lt;center&gt;
+&lt;iframe src="exercises/demo/demo-header.html" width = "90%", height = "500px"&gt;&lt;/iframe&gt;
+&lt;/center&gt;
+
+:::
+
+:::
+
 
 ---
 
-class: challenge middle
 
-Go through
+class: pad10
 
-`challenge-06.Rmd`
+# Direct Reference for `html`
 
-<div class="countdown" id="timer_5d95a16f" style="right:0;bottom:0;font-size:1.5em;">
-<code><span class="digits minutes">10</span><span class="digits colon">:</span><span class="digits seconds">00</span></code>
-</div>
+
+::: grid 
+
+::: item 
+
+* For `html` output, you can also give a link directly to the relevant section.
+* E.g. open `demo-header.html` in the `demo` folder in a web browser. 
+* Append say `#chicken-data` to the url. It should look like 
+.center[
+`demo-header.html#chicken-data`
+]
+* It should have taken you to straight to the corresponding header.
+
+::: 
+
+::: item 
+
+:::
+
+:::
+
+---
+
+class: pad10
+
+# User-defined id
+
+
+::: grid 
+
+::: item 
+
+* You can define your own id by appending `{#your-id}`.
+
+```markdown
+# Some header {#header1}
+```
+* Now you can link to this header with the id `header1`.
+* Note there should be no space in the id name!
+
+::: 
+
+::: item 
+
+:::
+
+:::
+
+
+
+---
+
+class: pad10 font_smaller
+
+# Bibliography
+
+* BibTeX citation style format is used to store references in `.bib` files.
+* Remember that you can get most BibTeX citation for R packages `citation` function. (Scroll below to see the BibTeX citation).
+
+.scroll-350[
+
+```r
+citation("xaringan")
+```
+
+```
+## 
+## To cite package 'xaringan' in publications use:
+## 
+##   Yihui Xie (2019). xaringan: Presentation Ninja. R package
+##   version 0.9. https://CRAN.R-project.org/package=xaringan
+## 
+## A BibTeX entry for LaTeX users is
+## 
+##   @Manual{,
+##     title = {xaringan: Presentation Ninja},
+##     author = {Yihui Xie},
+##     year = {2019},
+##     note = {R package version 0.9},
+##     url = {https://CRAN.R-project.org/package=xaringan},
+##   }
+```
+]
+
+---
+
+# Citations
+
+
+::: grid 
+
+::: item 
+
+* You can include BibTeX by specifying the `bib` file at YAML as:
+
+```markdown
+bibliography: bibliography.bib
+```
+
+
+[@bibtex-key] &lt;i class="fas fa-arrow-right"&gt;&lt;/i&gt; (Author et al. 2019)
+
+or 
+
+@bibtex-key &lt;i class="fas fa-arrow-right"&gt;&lt;/i&gt; Author et al. 2019
+
+* See `demo-citation.Rmd` in the demo folder.
+
+
+::: 
+
+::: item 
+
+:::
+
+:::
 
 
 ---
@@ -1207,7 +1525,7 @@ Emi Tanaka
 # Check that you can:
 
 &lt;ul&gt;
-&lt;li&gt;Understand how YAML changes .Rmd&lt;/li&gt;&lt;li&gt;Understand how to manipulate chunks in .Rmd&lt;/li&gt;&lt;li&gt;Change figure sizes in .Rmd&lt;/li&gt;
+&lt;li&gt;Understand how YAML changes .Rmd&lt;/li&gt;&lt;li&gt;Understand how to manipulate chunks in .Rmd&lt;/li&gt;&lt;li&gt;Understand how to change the template in .Rmd&lt;/li&gt;&lt;li&gt;Understand how to cross-reference and do citations&lt;/li&gt;
 &lt;/ul&gt;
 
 :::
