@@ -1,0 +1,282 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is just an example/guide for you to refer to when submitting manuscripts to Frontiers, it is not mandatory to use Frontiers .cls files nor frontiers.tex  %
+% This will only generate the Manuscript, the final article will be typeset by Frontiers after acceptance.
+%                                              %
+%                                                                                                                                                         %
+% When submitting your files, remember to upload this *tex file, the pdf generated with it, the *bib file (if bibliography is not within the *tex) and all the figures.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Version 3.4 Generated 2018/06/15 %%%
+%%% You will need to have the following packages installed: datetime, fmtcount, etoolbox, fcprefix, which are normally inlcuded in WinEdt. %%%
+%%% In http://www.ctan.org/ you can find the packages and how to install them, if necessary. %%%
+
+\documentclass[utf8]{frontiersSCNS}
+
+%\setcitestyle{square} % for Physics and Applied Mathematics and Statistics articles
+\usepackage{url,hyperref,lineno,microtype,subcaption}
+\usepackage[onehalfspacing]{setspace}
+
+\linenumbers
+
+
+% BELOW TAKEN FROM rticles plos template
+%
+% amsmath package, useful for mathematical formulas
+\usepackage{amsmath}
+% amssymb package, useful for mathematical symbols
+\usepackage{amssymb}
+
+% hyperref package, useful for hyperlinks
+\usepackage{hyperref}
+
+% graphicx package, useful for including eps and pdf graphics
+% include graphics with the command \includegraphics
+\usepackage{graphicx}
+
+% Sweave(-like)
+\usepackage{fancyvrb}
+\DefineVerbatimEnvironment{Sinput}{Verbatim}{fontshape=sl}
+\DefineVerbatimEnvironment{Soutput}{Verbatim}{}
+\DefineVerbatimEnvironment{Scode}{Verbatim}{fontshape=sl}
+\newenvironment{Schunk}{}{}
+\DefineVerbatimEnvironment{Code}{Verbatim}{}
+\DefineVerbatimEnvironment{CodeInput}{Verbatim}{fontshape=sl}
+\DefineVerbatimEnvironment{CodeOutput}{Verbatim}{}
+\newenvironment{CodeChunk}{}{}
+
+% cite package, to clean up citations in the main text. Do not remove.
+\usepackage{cite}
+
+\usepackage{color}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% Below is from frontiers
+%
+\bibliographystyle{frontiersinSCNS}
+% Use doublespacing - comment out for single spacing
+%\usepackage{setspace}
+%\doublespacing
+
+
+% Leave a blank line between paragraphs instead of using \\
+
+
+\def\keyFont{\fontsize{8}{11}\helveticabold }
+
+
+%% ** EDIT HERE **
+%% PLEASE INCLUDE ALL MACROS BELOW
+
+%% END MACROS SECTION
+
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+
+\def\Authors{
+  First Author\,\textsuperscript{1},
+  Co-Author\,\textsuperscript{2},
+  Co-Author\,\textsuperscript{1,3*}}
+
+\def\Address{
+
+  \textsuperscript{1} Department X, Institution X,  City X,  State XX,  Country X
+  
+  \textsuperscript{2} Department X, Institution X,  City X,  State XX,  Country X
+  
+  \textsuperscript{3} Department X, Institution X,  City X,  State XX,  Country X
+  }
+
+  
+  \def\firstAuthorLast{LASTNAME {et~al.}}
+  
+  
+  \def\corrAuthor{Co-Author}\def\corrAddress{Laboratory X, Institute X, Department X, Organization X\\Street X\\City X, State XX, Zip Code X Country X}\def\corrEmail{\href{mailto:email@uni.edu}{\nolinkurl{email@uni.edu}}}
+  
+
+
+\begin{document}
+\onecolumn
+\firstpage{1}
+
+\title[Short Title]{Article Title}
+\author[\firstAuthorLast]{\Authors}
+\address{} %This field will be automatically populated
+\correspondance{} %This field will be automatically populated
+
+\extraAuth{}% If there are more than 1 corresponding author, comment this line and uncomment the next one.
+%\extraAuth{corresponding Author2 \\ Laboratory X2, Institute X2, Department X2, Organization X2, Street X2, City X2 , State XX2 (only USA, Canada and Australia), Zip Code2, X2 Country X2, email2@uni2.edu}
+
+
+\maketitle
+
+\begin{abstract}
+
+Abstract length and content varies depending on article type. Refer to 
+\url{http://www.frontiersin.org/about/AuthorGuidelines} for abstract requirement
+and length according to article type.
+
+%All article types: you may provide up to 8 keywords; at least 5 are mandatory.
+\tiny
+ \keyFont{ \section{Keywords:} Text Text Text Text Text Text Text Text } 
+
+\end{abstract}
+
+\hypertarget{introduction}{%
+\section*{Introduction}\label{introduction}}
+\addcontentsline{toc}{section}{Introduction}
+
+Cite fancy references (LastName1 et al., 2013). As demonstrated in
+OtherAuthor and Coauthor (2012), citations can also be automatically
+reference. Multiple references are separated by semicolons (LastName1 et
+al., 2013; Author4 and Author5, 2013).
+
+\hypertarget{results}{%
+\section*{Results}\label{results}}
+\addcontentsline{toc}{section}{Results}
+
+\hypertarget{subsection-1}{%
+\subsection*{Subsection 1}\label{subsection-1}}
+\addcontentsline{toc}{subsection}{Subsection 1}
+
+You can use \texttt{R} chunks directly to plot graphs.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\DecValTok{0}\OperatorTok{:}\DecValTok{100}
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{999}\NormalTok{)}
+\NormalTok{y <-}\StringTok{ }\DecValTok{2} \OperatorTok{*}\StringTok{ }\NormalTok{(x }\OperatorTok{+}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\KeywordTok{length}\NormalTok{(x), }\DataTypeTok{sd =} \DecValTok{3}\NormalTok{) }\OperatorTok{+}\StringTok{ }\DecValTok{3}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(x, y)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{subsection-2}{%
+\subsection*{Subsection 2}\label{subsection-2}}
+\addcontentsline{toc}{subsection}{Subsection 2}
+
+Frontiers requires figures to be submitted individually, in the same
+order as they are referred to in the manuscript. Figures will then be
+automatically embedded at the bottom of the submitted manuscript. Kindly
+ensure that each table and figure is mentioned in the text and in
+numerical order. Permission must be obtained for use of copyrighted
+material from other sources (including the web). Please note that it is
+compulsory to follow figure instructions. Figures which are not
+according to the guidelines will cause substantial delay during the
+production process.
+
+\hypertarget{discussion}{%
+\section{Discussion}\label{discussion}}
+
+\hypertarget{disclosureconflict-of-interest-statement}{%
+\section*{Disclosure/Conflict-of-Interest
+Statement}\label{disclosureconflict-of-interest-statement}}
+\addcontentsline{toc}{section}{Disclosure/Conflict-of-Interest
+Statement}
+
+The authors declare that the research was conducted in the absence of
+any commercial or financial relationships that could be construed as a
+potential conflict of interest.
+
+\hypertarget{author-contributions}{%
+\section*{Author Contributions}\label{author-contributions}}
+\addcontentsline{toc}{section}{Author Contributions}
+
+The statement about the authors and contributors can be up to several
+sentences long, describing the tasks of individual authors referred to
+by their initials and should be included at the end of the manuscript
+before the References section.
+
+\hypertarget{acknowledgments}{%
+\section*{Acknowledgments}\label{acknowledgments}}
+\addcontentsline{toc}{section}{Acknowledgments}
+
+Funding:
+
+\hypertarget{supplemental-data}{%
+\section{Supplemental Data}\label{supplemental-data}}
+
+Supplementary Material should be uploaded separately on submission, if
+there are Supplementary Figures, please include the caption in the same
+file as the figure. LaTeX Supplementary Material templates can be found
+in the Frontiers LaTeX folder
+
+\hypertarget{references}{%
+\section{References}\label{references}}
+
+A reference list should be automatically created here. However it won't.
+Pandoc will place the list of references at the end of the document
+instead. There are no convenient solution for now to force Pandoc to do
+otherwise. The easiest way to get around this problem is to edit the
+LaTeX file created by Pandoc before compiling it again using the
+traditional LaTeX commands.
+
+\hypertarget{figures}{%
+\section*{Figures}\label{figures}}
+\addcontentsline{toc}{section}{Figures}
+
+\begin{figure}
+
+{\centering \includegraphics[width=85mm,height=85mm]{article_template_frontiers_article_files/figure-latex/Figure-1-1} 
+
+}
+
+\caption{Figure caption}\label{fig:Figure-1}
+\end{figure}
+
+\hypertarget{refs}{}
+\leavevmode\hypertarget{ref-Neurobot2013}{}%
+Author4, N., and Author5, N. (2013). Title of the article.
+\emph{Frontiers in Neurorobotics} 7.
+doi:\href{https://doi.org/10.3389/fnbot.2013.56789}{10.3389/fnbot.2013.56789}.
+
+\leavevmode\hypertarget{ref-Neuro2013}{}%
+LastName1, A., LastName2, A., and LastName2, A. (2013). Article title.
+\emph{Frontiers in Neuroscience} 30, 10127--10134.
+doi:\href{https://doi.org/10.3389/fnins.2013.12345}{10.3389/fnins.2013.12345}.
+
+\leavevmode\hypertarget{ref-Gene2012}{}%
+OtherAuthor, N., and Coauthor, N. S. (2012). Article title.
+\emph{Frontiers in Genetics} 30, 16417--16418.
+doi:\href{https://doi.org/10.3389/fgene.2012.54321}{10.3389/fgene.2012.54321}.
+
+\end{document}

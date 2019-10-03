@@ -1,0 +1,229 @@
+% mnras_template.tex
+%
+% LaTeX template for creating an MNRAS paper
+%
+% v3.0 released 14 May 2015
+% (version numbers match those of mnras.cls)
+%
+% Copyright (C) Royal Astronomical Society 2015
+% Authors:
+% Keith T. Smith (Royal Astronomical Society)
+
+% Change log
+%
+% v3.0 May 2015
+%    Renamed to match the new package name
+%    Version number matches mnras.cls
+%    A few minor tweaks to wording
+% v1.0 September 2013
+%    Beta testing only - never publicly released
+%    First version: a simple (ish) template for creating an MNRAS paper
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Basic setup. Most papers should leave these options alone.
+\documentclass[a4paper,fleqn,usenatbib]{mnras}
+
+% MNRAS is set in Times font. If you don't have this installed (most LaTeX
+% installations will be fine) or prefer the old Computer Modern fonts, comment
+% out the following line
+\usepackage{newtxtext,newtxmath}
+% Depending on your LaTeX fonts installation, you might get better results with one of these:
+%\usepackage{mathptmx}
+%\usepackage{txfonts}
+
+% Use vector fonts, so it zooms properly in on-screen viewing software
+% Don't change these lines unless you know what you are doing
+\usepackage[T1]{fontenc}
+\usepackage{ae,aecompl}
+
+
+%%%%% AUTHORS - PLACE YOUR OWN PACKAGES HERE %%%%%
+
+% Only include extra packages if you really need them. Common packages are:
+\usepackage{graphicx}	% Including figure files
+\usepackage{amsmath}	% Advanced maths commands
+\usepackage{amssymb}	% Extra maths symbols
+\usepackage{hyperref}
+\usepackage{url}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% AUTHORS - PLACE YOUR OWN COMMANDS HERE %%%%%
+
+% Please keep new commands to a minimum, and use \newcommand not \def to avoid
+% overwriting existing commands. Example:
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%% TITLE PAGE %%%%%%%%%%%%%%%%%%%
+
+% Title of the paper, and the short title which is used in the headers.
+% Keep the title short and informative.
+\title[Short Paper]{Short Paper}
+
+% The list of authors, and the short list which is used in the headers.
+% If you need two or more lines of authors, add an extra line using \newauthor
+
+\author[K. T. Smith et al.]{
+	Keith T. Smith
+			\thanks{\href{mailto:mn@ras.org.uk}{\nolinkurl{mn@ras.org.uk}}}
+				$^{1}$
+		A. N. Other
+				$^{2}$
+		Third Author
+				$^{2,3}$
+		Fourth Author
+				$^{3}$
+	\\
+			$^{1}$Royal Astronomical Society, Burlington House, Piccadilly, London W1J
+0BQ, UK\\
+			$^{2}$Department, Institution, Street Address, City Postal Code, Country\\
+			$^{3}$Another Department, Different Institution, Street Address, City Postal
+Code, Country}
+
+% These dates will be filled out by the publisher
+\date{Accepted XXX. Received YYY; in original form ZZZ}
+
+% Enter the current year, for the copyright statements etc.
+\pubyear{2018}
+
+% Don't change these lines
+\begin{document}
+\label{firstpage}
+\pagerange{\pageref{firstpage}--\pageref{lastpage}}
+\maketitle
+
+% Abstract of the paper
+\begin{abstract}
+This is a simple template for authors to write new MNRAS papers. The
+abstract should briefly describe the aims, methods, and main results of
+the paper. It should be a single paragraph not more than 250 words (200
+words for Letters). No references should appear in the abstract.
+\end{abstract}
+
+% Select between one and six entries from the list of approved keywords.
+% Don't make up new ones.
+\begin{keywords}
+keyword1 -- keyword2 -- keyword3
+\end{keywords}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%% BODY OF PAPER %%%%%%%%%%%%%%%%%%
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+This is a simple template for authors to write new MNRAS papers. See
+\texttt{mnras\_sample.tex} for a more complex example, and
+\texttt{mnras\_guide.tex} for a full user guide.
+
+All papers should start with an Introduction section, which sets the
+work in context, cites relevant earlier studies in the field by S.
+(2013), and describes the problem the authors aim to solve N. (2012).
+
+\hypertarget{methods-observations-simulations-etc.}{%
+\section{Methods, Observations, Simulations
+etc.}\label{methods-observations-simulations-etc.}}
+
+Normally the next section describes the techniques the authors used. It
+is frequently split into subsections, such as Section \ref{maths} below.
+
+\hypertarget{maths}{%
+\subsection{Maths}\label{maths}}
+
+Labels are auto--generated, i.e.~this one has
+\texttt{\textbackslash{}label\{maths\}}.
+
+Simple mathematics can be inserted into the flow of the text e.g.
+\(2\times3=6\) or \(v=220\) km s\(^{-1}\), but more complicated
+expressions should be entered as a numbered equation:
+
+\begin{equation}
+  x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
+  \label{eq:quadratic}
+\end{equation}
+
+Refer back to them as e.g.~equation (\ref{eq:quadratic}).
+
+\hypertarget{figures-and-tables}{%
+\subsection{Figures and tables}\label{figures-and-tables}}
+
+Figures and tables should be placed at logical positions in the text.
+Don't worry about the exact layout, which will be handled by the
+publishers.
+
+Figures are referred to as e.g.~Fig. \ref{fig:example_figure}, and
+tables as e.g.~Table \ref{tab:example_table}.
+
+\begin{figure}
+  % To include a figure from a file named example.*
+  % Allowable file formats are eps or ps if compiling using latex
+  % or pdf, png, jpg if compiling using pdflatex
+  \includegraphics[width=\columnwidth]{example}
+    \caption{This is an example figure. Captions appear below each figure.
+  Give enough detail for the reader to understand what they're looking at,
+  but leave detailed discussion to the main body of the text.}
+    \label{fig:example_figure}
+\end{figure}
+
+\begin{table}
+  \centering
+  \caption{This is an example table. Captions appear above each table.
+  Remember to define the quantities, symbols and units used.}
+  \label{tab:example_table}
+  \begin{tabular}{lccr} % four columns, alignment for each
+    \hline
+    A & B & C & D\\
+    \hline
+    1 & 2 & 3 & 4\\
+    2 & 4 & 6 & 8\\
+    3 & 5 & 7 & 9\\
+    \hline
+  \end{tabular}
+\end{table}
+
+\hypertarget{conclusions}{%
+\section{Conclusions}\label{conclusions}}
+
+The last numbered section should briefly summarise what has been done,
+and describe the final conclusions which the authors draw from their
+work.
+
+\hypertarget{acknowledgements}{%
+\section*{Acknowledgements}\label{acknowledgements}}
+\addcontentsline{toc}{section}{Acknowledgements}
+
+The Acknowledgements section is not numbered. Here you can thank helpful
+colleagues, acknowledge funding agencies, telescopes and facilities used
+etc. Try to keep it short.
+
+\hypertarget{references}{%
+\section*{References}\label{references}}
+\addcontentsline{toc}{section}{References}
+
+\hypertarget{refs}{}
+\leavevmode\hypertarget{ref-Author2012}{}%
+N., A. A. (2012) \emph{Journal of Improbable Astronomy}, 1(1).
+
+\leavevmode\hypertarget{ref-Others2013}{}%
+S., O. (2013) \emph{Journal of Interesting Stuff}, 17(198).
+
+\appendix
+
+\hypertarget{some-extra-material}{%
+\section{Some extra material}\label{some-extra-material}}
+
+If you want to present additional material which would interrupt the
+flow of the main paper, it can be placed in an Appendix which appears
+after the list of references.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Don't change these lines
+\bsp	% typesetting comment
+\label{lastpage}
+\end{document}
+
+% End of mnras_template.tex

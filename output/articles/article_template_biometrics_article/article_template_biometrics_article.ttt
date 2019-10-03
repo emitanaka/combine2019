@@ -1,0 +1,17 @@
+\begin{table}[ht]
+\centering
+\caption{Caption centered under table}
+\label{tab1}
+\begin{tabular}{rrrrr}
+  \hline
+ & mpg & cyl & disp & hp \\
+  \hline
+Mazda RX4 & 21.00 & 6.00 & 160.00 & 110.00 \\
+  Mazda RX4 Wag & 21.00 & 6.00 & 160.00 & 110.00 \\
+  Datsun 710 & 22.80 & 4.00 & 108.00 & 93.00 \\
+  Hornet 4 Drive & 21.40 & 6.00 & 258.00 & 110.00 \\
+  Hornet Sportabout & 18.70 & 8.00 & 360.00 & 175.00 \\
+  Valiant & 18.10 & 6.00 & 225.00 & 105.00 \\
+   \hline
+\end{tabular}
+\end{table}

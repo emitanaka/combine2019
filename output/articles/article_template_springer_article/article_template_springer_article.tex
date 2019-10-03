@@ -1,0 +1,132 @@
+% !TeX program = pdfLaTeX
+\documentclass[smallextended]{svjour3}       % onecolumn (second format)
+%\documentclass[twocolumn]{svjour3}          % twocolumn
+%
+\smartqed  % flush right qed marks, e.g. at end of proof
+%
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+
+\usepackage[hyphens]{url} % not crucial - just used below for the URL
+\usepackage{hyperref}
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+%
+% \usepackage{mathptmx}      % use Times fonts if available on your TeX system
+%
+% insert here the call for the packages your document requires
+%\usepackage{latexsym}
+% etc.
+%
+% please place your own definitions here and don't use \def but
+% \newcommand{}{}
+%
+% Insert the name of "your journal" with
+% \journalname{myjournal}
+%
+
+%% load any required packages here
+
+
+
+
+\begin{document}
+
+\title{Title here \thanks{Grants or other notes about the article that should go on the front page
+should be placed here. General acknowledgments should be placed at the
+end of the article.} }
+ \subtitle{Do you have a subtitle? If so, write it here} 
+
+    \titlerunning{Short form of title (if too long for head)}
+
+\author{  Äüthör 1 \and  Âuthóř 2 \and  }
+
+    \authorrunning{ Short form of author list if too long for running head }
+
+\institute{
+        Äüthör 1 \at
+     Department of YYY, University of XXX \\
+     \email{\href{mailto:abc@def}{\nolinkurl{abc@def}}}  %  \\
+%             \emph{Present address:} of F. Author  %  if needed
+    \and
+        Âuthóř 2 \at
+     Department of ZZZ, University of WWW \\
+     \email{\href{mailto:djf@wef}{\nolinkurl{djf@wef}}}  %  \\
+%             \emph{Present address:} of F. Author  %  if needed
+    \and
+    }
+
+\date{Received: date / Accepted: date}
+% The correct dates will be entered by the editor
+
+
+\maketitle
+
+\begin{abstract}
+The text of your abstract. 150 -- 250 words.
+\\
+\keywords{
+        key \and
+        dictionary \and
+        word \and
+    }
+
+    \subclass{
+                    MSC code 1 \and
+                    MSC code 2 \and
+            }
+
+\end{abstract}
+
+
+\def\spacingset#1{\renewcommand{\baselinestretch}%
+{#1}\small\normalsize} \spacingset{1}
+
+
+\hypertarget{intro}{%
+\section{Introduction}\label{intro}}
+
+Your text comes here. Separate text sections with
+
+\hypertarget{sec:1}{%
+\section{Section title}\label{sec:1}}
+
+Text with citations by Galyardt (2014), (Mislevy 2006).
+
+\hypertarget{sec:2}{%
+\subsection{Subsection title}\label{sec:2}}
+
+as required. Don't forget to give each section and subsection a unique
+label (see Sect. \ref{sec:1}).
+
+\hypertarget{paragraph-headings}{%
+\paragraph{Paragraph headings}\label{paragraph-headings}}
+
+Use paragraph headings as needed.
+
+\begin{align}
+a^2+b^2=c^2
+\end{align}
+
+\hypertarget{references}{%
+\section*{References}\label{references}}
+\addcontentsline{toc}{section}{References}
+
+\hypertarget{refs}{}
+\leavevmode\hypertarget{ref-Galyardt14mmm}{}%
+Galyardt, April. 2014. ``Interpreting Mixed Membership Models:
+Implications of Erosheva's Representation Theorem.'' In \emph{Handbook
+of Mixed Membership Models}, edited by Edoardo M. Airoldi, David Blei,
+Elena Erosheva, and Stephen E. Fienberg. Chapman; Hall.
+
+\leavevmode\hypertarget{ref-Mislevy06Cog}{}%
+Mislevy, Robert. 2006. ``Cognitive Psychology and Educational
+Assessment.'' In \emph{Educational Assessment}, edited by Robert L.
+Brennan. American Council on Education; Praeger Publishers.
+
+\bibliographystyle{spbasic}
+\bibliography{bibliography.bib}
+
+\end{document}

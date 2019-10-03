@@ -1,0 +1,5 @@
+\begin{figure}
+\centering
+\includegraphics{article_template_biometrics_article_files/figure-latex/fig2-1.pdf}
+\caption{Output from \texttt{pdf()}}
+\end{figure}

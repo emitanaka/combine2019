@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: RJwrapper.aux
+The style file: abbrvnat.bst
+Database file #1: RJreferences.bib
+You've used 1 entry,
+            2773 wiz_defined-function locations,
+            601 strings with 4730 characters,
+and the built_in function-call counts, 338 in all, are:
+= -- 32
+> -- 10
+< -- 1
++ -- 4
+- -- 3
+* -- 20
+:= -- 62
+add.period$ -- 5
+call.type$ -- 1
+change.case$ -- 3
+chr.to.int$ -- 1
+cite$ -- 2
+duplicate$ -- 17
+empty$ -- 26
+format.name$ -- 4
+if$ -- 63
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 0
+newline$ -- 15
+num.names$ -- 4
+pop$ -- 5
+preamble$ -- 1
+purify$ -- 3
+quote$ -- 0
+skip$ -- 12
+stack$ -- 0
+substring$ -- 2
+swap$ -- 2
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 11
+warning$ -- 0
+while$ -- 3
+width$ -- 0
+write$ -- 24

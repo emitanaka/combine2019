@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Communicating with Data via R markdown</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Emi Tanaka" />
+    <link href="libs/remark-css-0.0.1/ninjutsu.css" rel="stylesheet" />
+    <link href="libs/font-awesome-animation-1.0/font-awesome-animation-emi.css" rel="stylesheet" />
+    <script src="libs/fontawesome-5.0.13/js/fontawesome-all.min.js"></script>
+    <link href="libs/countdown-0.2.0/countdown.css" rel="stylesheet" />
+    <script src="libs/countdown-0.2.0/countdown.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="assets/animate.css" type="text/css" />
+    <link rel="stylesheet" href="assets/cssgrid.css" type="text/css" />
+    <link rel="stylesheet" href="assets/custom.css" type="text/css" />
+    <link rel="stylesheet" href="assets/image_modal.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+background-image: url(images/bg1.jpg)
+background-size: cover
+class: hide-slide-number
+
+
+:::::::::: { .grid grid: 50% 50% / 1fr;} 
+::: item center
+
+# &lt;span style="text-shadow: 2px 2px 30px white;"&gt;Communicating with Data &lt;br&gt; via R Markdown&lt;/span&gt;
+
+&lt;br&gt;&lt;br&gt;
+## &lt;span style="color:#f9af2b;text-shadow: 2px 2px 30px black;"&gt;Reproducible Reports&lt;/span&gt;
+
+:::
+
+::: item center shade_black animated bounceInUp slower
+
+Presented by Emi Tanaka
+
+School of Mathematics and Statistics
+
+&lt;img src="assets/USydLogo-white.svg" style="width:200px"&gt;&lt;br&gt;
+<span>&lt;i class="fas  fa-envelope faa-float animated "&gt;&lt;/i&gt;</span>  dr.emi.tanaka@gmail.com
+<span>&lt;i class="fab  fa-twitter faa-float animated faa-fast "&gt;&lt;/i&gt;</span>  @statsgen
+
+4th October 2019 | COMBINE | Sydney, Australia
+
+
+:::
+
+:::::::::: 
+
+
+::: { .shade_black .pos .font_small width:20%;right:10px;bottom:20%;padding:5px;border: solid 5px white;}
+
+&lt;i class="fas fa-exclamation-circle"&gt;&lt;/i&gt; These slides are viewed best by Chrome and occasionally need to be refreshed if elements did not load properly. See here for &lt;a href=session2.pdf style="color:white!important"/&gt;PDF &lt;i class="fas fa-file-pdf"&gt;&lt;/i&gt;&lt;/a&gt;. 
+
+:::
+
+
+---
+
+class: info 
+
+# In a nutshell 🥜
+
+&lt;br&gt;&lt;br/&gt;
+
+
+.font_large[
+R Markdown integrates .yellow[**text**] + .yellow[`code`] in one source document with ability to knit to many output formats (via Pandoc).
+
+]
+
+---
+
+
+::: grid 
+
+::: item 
+# Text in Markdown
+
+```markdown
+# Header 1
+## Header 2
+
+- Unordered list 1 
+- Unordered list 2
+ 
+1. Ordered list 1
+1. Ordered list 2
+ 
+_This is italic._ *This too.*
+__This is bold.__ **This too.**
+_**This is bold &amp; italic.**_
+```
+
+&lt;p&gt;&lt;/p&gt;
+
+::: 
+
+::: item 
+
+[Output]{.header .bg-blue .white padding:10px; border: solid 2px black;}
+
+# Header 1
+## Header 2
+
+* Unordered list 1 
+* Unordered list 2
+
+1. Ordered list 1
+1. Ordered list 2
+ 
+_This is italic._ *This too.*
+__This is bold.__ **This too.**
+_**This is bold &amp; italic.**_
+
+:::
+
+:::
+
+::: {.bottom_abs .width100 .bg-indigo .white padding-left:10px;}
+Go to RStudio &gt; Help &gt; Markdown Quick Reference
+:::
+
+
+---
+
+class: info
+
+# Shortcut for inserting code chunk  
+
+::: grid 
+
+::: item
+
+In RStudio .Rmd &lt;i class="far fa-file"&gt;&lt;/i&gt; press
+
+* Mac: &lt;kbd&gt;⌘&lt;/kbd&gt; + &lt;kbd&gt;⌥&lt;/kbd&gt; + &lt;kbd&gt;i&lt;/kbd&gt; 
+
+
+* PC: &lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;Alt&lt;/kbd&gt; + &lt;kbd&gt;i&lt;/kbd&gt; 
+
+to insert a chunk of R code
+
+::: font_large
+
+````markdown
+```{r}
+
+```
+````
+
+:::
+:::
+
+::: item 
+
+:::
+
+:::
+
+---
+
+# Chunk options: &lt;code&gt;echo&lt;/code&gt; &amp; &lt;code&gt;eval&lt;/code&gt;
+
+::: grid 
+::: item 
+
+````markdown
+```{r, echo = FALSE}
+plot(speed ~ dist, cars)
+```
+````
+&lt;center&gt;
+&lt;i class="fas fa-arrow-down"&gt;&lt;/i&gt;
+&lt;/center&gt;
+
+&lt;img src="session2_files/figure-html/unnamed-chunk-1-1.png" style="display: block; margin: auto;" /&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+::: 
+
+::: item 
+
+````markdown
+```{r, eval = FALSE}
+plot(speed ~ dist, cars)
+```
+````
+
+&lt;center&gt;
+&lt;i class="fas fa-arrow-down"&gt;&lt;/i&gt;
+&lt;/center&gt;
+
+
+```r
+plot(speed ~ dist, cars)
+```
+
+&lt;p&gt;&lt;/p&gt;
+
+:::
+
+:::
+
+---
+
+class: question middle
+
+There are many more .yellow[chunk options].
+
+Can you name 5 other ones?
+
+Hint: https://yihui.name/knitr/options/
+
+(We'll explore some later.)
+
+
+---
+
+class: info
+
+# Valid chunk options
+
+* Chunk options must be written in **one line**, i.e. no line break. 
+
+
+* All option values must be **valid R expressions**. Exception is the chunk name. E.g.
+   * `fig.path = figures/` is not valid but &lt;br&gt;`fig.path = "figures/"` is valid
+   * `eval = true` is not valid but&lt;br&gt; `eval = runif(1) &gt; 0.5` is valid
+
+---
+
+class: info
+
+# Chunk names (or labels)
+
+The chunk below is called `plot1`.
+````markdown
+```{r plot1}
+ggplot(cars, aes(dist, speed)) + geom_point()
+```
+````
+
+All chunks have a label regardless of whether it is explicitly supplied or not.
+
+&lt;i class="fa fa-exclamation-triangle"&gt;&lt;/i&gt; Do not include spaces, "_" or punctuation marks in your chunk name!
+
+---
+
+
+::: pad10
+
+# Inline R Commands
+
+
+```markdown
+Today's date is `r Sys.Date()`.
+```
+
+Today's date is 2019-10-03.
+
+```markdown
+The value of $\pi$ is `r pi`.
+```
+
+The value of `\(\pi\)` is 3.1415927.
+
+* Note: the inline command needs to be R commands.
+
+
+* Inline command does *not* `echo` and always `eval`uates.
+
+&lt;p&gt;&lt;/p&gt;
+
+:::
+
+
+---
+
+class: challenge middle
+
+# Go through 
+
+* `challenge-02.Rmd`
+* `challenge-03.Rmd`
+* `challenge-04.Rmd`
+* `challenge-05.Rmd`
+* `challenge-06.Rmd`
+
+
+<div class="countdown" id="timer_5d95a12a" style="right:0;bottom:0;font-size:1.5em;">
+<code><span class="digits minutes">25</span><span class="digits colon">:</span><span class="digits seconds">00</span></code>
+</div>
+
+---
+
+# R Markdown is not just for R
+
+::: grid 
+
+::: item 
+
+````markdown
+```{python, echo = FALSE}
+a = [1, 2, 3]
+a[0]
+```
+````
+
+&lt;center&gt;
+&lt;i class="fas fa-arrow-down"&gt;&lt;/i&gt;
+&lt;/center&gt;
+
+
+```
+## 1
+```
+&lt;p&gt;&lt;/p&gt;
+
+:::
+
+::: item 
+
+````markdown
+```{bash, echo = FALSE}
+date +%B
+```
+````
+&lt;center&gt;
+&lt;i class="fas fa-arrow-down"&gt;&lt;/i&gt;
+&lt;/center&gt;
+
+
+```
+## October
+```
+&lt;p&gt;&lt;/p&gt;
+::::
+
+::::
+
+---
+
+class: question middle
+
+Can you name some other engines?
+
+Hint: https://yihui.name/knitr/demo/engines/
+
+
+---
+
+
+
+# YAML - YAML Ain't Markup Language
+
+:::: grid
+
+::: item 
+
+Basic format
+```markdown
+---
+key: value
+---
+```
+:::
+
+::: item 
+
+Example
+
+```
+---
+title: "Communicating with Data via R Markdown"
+subtitle: "Reproducible Reports"
+author: "Emi Tanaka"
+date: "`r Sys.Date()`"
+output: html_document
+---
+```
+
+There must be a space after "`:`"!
+&lt;p&gt;&lt;/p&gt;
+:::
+
+:::
+
+---
+
+# Metadata
+
+All YAML data are stored in `rmarkdown::metadata` as list.
+
+
+```r
+rmarkdown::metadata$title
+```
+
+```
+## [1] "Communicating with Data via R markdown"
+```
+
+```r
+rmarkdown::metadata$author
+```
+
+```
+## [1] "Emi Tanaka"
+```
+
+---
+
+class: font_small
+
+# Default (minimal) html output
+
+```
+&lt;!DOCTYPE html&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+
+&lt;head&gt;
+&lt;meta name="author" content="Emi Tanaka" /&gt;
+&lt;meta name="date" content="2019-10-04" /&gt;
+&lt;title&gt;Communicating with Data via R Markdown&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;h1 class="title toc-ignore"&gt;Communicating with Data via R Markdown&lt;/h1&gt;
+&lt;h3 class="subtitle"&gt;Reproducible Reports&lt;/h3&gt;
+&lt;h4 class="author"&gt;Emi Tanaka&lt;/h4&gt;
+&lt;h4 class="date"&gt;2019-10-04&lt;/h4&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+```
+&lt;p&gt;&lt;/p&gt;
+
+::: { .bubble1 .pos width:300px;left:70%;top:48%;}
+
+html meta data
+
+:::
+
+::: { .bubble1 .pos width:650px;left:43%;top:75%;}
+
+Default html template add special YAML key values to file automatically
+
+:::
+
+::: {.pos top:10px; right:20px;}
+output&lt;br&gt;
+&lt;img src = "images/minimal-html-output.png" width = "250px" style="border: solid 3px black;"/&gt;
+
+:::
+
+---
+
+::: pad10
+
+# YAML structure
+
+* White spaces indicate structure in YAML - don't use tabs though!
+* Same as R, you can comment lines by starting with `#`.
+* YAML is case sensitive.
+* A `key` can hold multiple values. 
+
+```markdown
+key: 
+  - value 1
+  - value 2
+```
+
+```markdown
+key: [value 1, value 2]
+```
+
+:::
+
+---
+
+class: font_small
+
+# YAML with multiple key values
+
+```
+---
+title: "Communicating with Data via R Markdown"
+author: 
+ - "Emi Tanaka"
+ - "Accomplice"
+output: html_document
+---
+```
+
+```
+&lt;body&gt;
+&lt;h1 class="title toc-ignore"&gt;Communicating with Data via R Markdown&lt;/h1&gt;
+&lt;h4 class="author"&gt;Emi Tanaka&lt;/h4&gt;
+*&lt;h4 class="author"&gt;Accomplice&lt;/h4&gt; 
+&lt;/body&gt;
+```
+
+&lt;p&gt;&lt;/p&gt;
+
+::: {.pos top:10px; right:20px;}
+output&lt;br&gt;
+&lt;img src = "images/minimal-html-output2.png" width = "250px" style="border: solid 3px black;"/&gt;
+
+:::
+
+
+---
+
+class: question
+
+
+::: {text-align: left;}
+
+# `key` can contain `key`s
+
+
+```
+---
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+```
+&lt;p&gt;&lt;/p&gt;
+What does this do?
+
+:::
+
+(Note: white space is important)
+
+---
+
+class: font_small
+
+# Values spanning multiple lines
+
+```markdown
+---
+title: &gt;
+  this is a\ 
+  single line\
+  
+abstract: |
+  this value spans\
+  many lines and\
+  appears as it is\
+  
+output: pdf_document
+---
+
+`r rmarkdown::metadata$title`
+`r rmarkdown::metadata$abstract`
+```
+
+::: {.pos top:100px; right:20px;}
+output&lt;br&gt;
+&lt;img src = "images/minimal-pdf-output.png" width = "800px" style="border: solid 3px black;"/&gt;
+
+:::
+
+---
+
+class: challenge middle
+
+Go through
+
+`challenge-07.Rmd`
+
+<div class="countdown" id="timer_5d959ec3" style="right:0;bottom:0;font-size:1.5em;">
+<code><span class="digits minutes">10</span><span class="digits colon">:</span><span class="digits seconds">00</span></code>
+</div>
+
+---
+
+class: font_small
+
+# Parametrized Report
+
+````markdown
+---
+title: "Parameterized Report"
+params:
+  species: setosa
+output: html_document
+---
+
+```{r, message = FALSE, fig.dim = c(3,2)}
+library(tidyverse)
+iris %&gt;% 
+*  filter(Species==params$species) %&gt;% 
+   ggplot(aes(Sepal.Length, Sepal.Width)) +
+   geom_point(aes(color=Species))
+```
+````
+
+::: {.pos top:10px; right:10px;}
+output&lt;br&gt;
+&lt;img src = "images/parameterised-report-eg1.png" width = "550px" style="border: solid 3px black;"/&gt;
+
+:::
+
+---
+
+class: font_smaller
+
+::: grid
+::: item 
+# Knit with Parameters
+```markdown
+---
+title: "Parameterized Report"
+params:
+  species: 
+    label: "Species"
+    value: setosa
+    input: select
+    choices: [setosa, versicolor, virginica]
+  color: red
+  max:
+    label: "Maximum Sepal Width"
+    value: 4
+    input: slider
+    min: 4
+    max: 5
+    step: 0.1
+output: html_document
+---
+```
+
+:::
+
+::: item 
+
+&lt;img src = "images/knit-with-params.png" width = "300px" style="border: solid 3px black;"/&gt;
+
+````markdown
+```{r, message = params$printmsg, fig.dim = c(3,2)}
+library(tidyverse)
+iris %&gt;% 
+  filter(Species==params$species) %&gt;% 
+  filter(Sepal.Width &lt; params$max) %&gt;% 
+  ggplot(aes(Sepal.Length, Sepal.Width)) +
+  geom_point(aes(color=Species), 
+             color = params$color)
+```
+````
+
+
+
+:::
+
+:::
+
+---
+
+class: font_smaller
+
+# Shiny Report Generator
+::: grid
+::: item 
+```markdown
+---
+title: "Parameterized Report"
+params:
+  species: 
+    label: "Species"
+    value: setosa
+    input: select
+    choices: [setosa, versicolor, virginica]
+  color: red
+  max:
+    label: "Maximum Sepal Width"
+    value: 5
+    input: slider
+    min: 4
+    max: 5
+    step: 0.05
+output: html_document
+---
+```
+
+:::
+
+::: item 
+
+# &amp;nbsp;
+
+&lt;img src = "images/shiny-params.png" width = "100%" style="border: solid 3px black;"/&gt;
+
+
+:::
+
+:::
+
+---
+
+class: font_smaller
+
+# R Markdown via Command Line
+
+::: grid 
+
+::: item 
+
+`demo-render.Rmd`
+
+````markdown
+---
+title: "Parameterized Report"
+params:
+  species: setosa
+output: html_document
+---
+
+```{r, message = FALSE, fig.dim = c(3,2)}
+library(tidyverse)
+iris %&gt;% 
+*  filter(Species==params$species) %&gt;% 
+   ggplot(aes(Sepal.Length, Sepal.Width)) +
+   geom_point(aes(color=Species))
+```
+````
+
+:::
+
+::: item 
+
+You can knit this file via R command by using `render` function:
+
+
+```r
+library(rmarkdown)
+render("demo-render.Rmd")
+```
+
+You can overwrite the YAML values by supplying arguments to `render`:
+
+
+```r
+library(rmarkdown)
+render("demo-render.Rmd", 
+       output_format = "pdf_document",
+       params = list(species = "virginica"))
+```
+
+
+:::
+
+:::
+
+
+---
+
+class: challenge middle
+
+Go through
+
+`challenge-08.Rmd`
+
+<div class="countdown" id="timer_5d95a0fe" style="right:0;bottom:0;font-size:1.5em;">
+<code><span class="digits minutes">05</span><span class="digits colon">:</span><span class="digits seconds">00</span></code>
+</div>
+
+---
+
+# Themes: `html_document`  
+
+&lt;!-- The Modal --&gt;
+&lt;div id="myModal" class="modal"&gt;
+  &lt;div id="caption"&gt;&lt;/div&gt;
+  &lt;span class="close" onclick="document.getElementById('myModal').style.display='none'"&gt;&amp;times;&lt;/span&gt;
+  &lt;iframe class="modal-content" id="img01"&gt;&lt;/iframe&gt;&lt;br&gt;
+&lt;/div&gt;
+
+You can change the look of the html document by specifying themes:
+::: grid 
+
+::: item 
+
+* `default` &lt;img class="modalImg" alt="default"/&gt; 
+* `cerulean` &lt;img class="modalImg" alt="cerulean"/&gt; 
+* `journal`  &lt;img class="modalImg" alt="journal"/&gt; 
+* `flatly` &lt;img class="modalImg" alt="flatly"/&gt; 
+* `darkly` &lt;img class="modalImg" alt="darkly"/&gt; 
+* `readable` &lt;img class="modalImg" alt="readable"/&gt; 
+* `spacelab` &lt;img class="modalImg" alt="spacelab"/&gt; 
+* `united` &lt;img class="modalImg" alt="united"/&gt; 
+
+:::
+
+::: item 
+
+
+* `cosmo` &lt;img class="modalImg" alt="cosmo"/&gt; 
+* `lumen` &lt;img class="modalImg" alt="lumen"/&gt; 
+* `paper` &lt;img class="modalImg" alt="paper"/&gt; 
+* `sandstone` &lt;img class="modalImg" alt="sandstone"/&gt; 
+* `simplex` &lt;img class="modalImg" alt="simplex"/&gt; 
+* `yeti` &lt;img class="modalImg" alt="yeti"/&gt; 
+* `NULL`  &lt;img class="modalImg" alt="null"/&gt; 
+
+:::
+
+::: item 
+
+
+```markdown
+output: 
+  html_document:
+    theme: cerulean
+```
+
+These [bootswatch](https://bootswatch.com/) themes attach the whole bootstrap library which makes your html file size larger.
+
+:::
+
+:::
+
+---
+
+# `prettydoc` 
+
+&lt;!-- The Modal --&gt;
+&lt;div id="myModal2" class="modal"&gt;
+  &lt;div id="caption2"&gt;&lt;/div&gt;
+  &lt;span class="close" onclick="document.getElementById('myModal2').style.display='none'"&gt;&amp;times;&lt;/span&gt;
+  &lt;iframe class="modal-content" id="img02"&gt;&lt;/iframe&gt;&lt;br&gt;
+&lt;/div&gt;
+
+::: grid 
+
+::: item 
+
+`prettydoc` 📦 is a community contributed `theme` that is light-weight:
+
+* `cayman` &lt;img class="modalImg2" alt="cayman"/&gt; 
+* `tactile` &lt;img class="modalImg2" alt="tactile"/&gt; 
+* `architect` &lt;img class="modalImg2" alt="architect"/&gt; 
+* `leonids` &lt;img class="modalImg2" alt="leonids"/&gt; 
+* `hpstr` &lt;img class="modalImg2" alt="hpstr"/&gt; 
+
+
+
+:::
+
+::: item 
+
+
+
+```markdown
+output: 
+  prettydoc::html_pretty:
+    theme: cayman
+```
+
+See more about it below:
+
+https://prettydoc.statr.me/
+
+:::
+
+:::
+
+
+
+
+
+---
+
+# `rmdformats`
+
+&lt;!-- The Modal --&gt;
+&lt;div id="myModal3" class="modal"&gt;
+  &lt;div id="caption3"&gt;&lt;/div&gt;
+  &lt;span class="close" onclick="document.getElementById('myModal3').style.display='none'"&gt;&amp;times;&lt;/span&gt;
+  &lt;iframe class="modal-content" id="img03"&gt;&lt;/iframe&gt;&lt;br&gt;
+&lt;/div&gt;
+
+
+::: grid 
+
+::: item 
+
+`rmdformats` 📦 contains four built-in `html` formats: 
+
+
+* `readthedown` &lt;img class="modalImg3" alt="readthedown"/&gt; 
+* `html_clean` &lt;img class="modalImg3" alt="html_clean"/&gt; 
+* `html_docco` &lt;img class="modalImg3" alt="html_docco"/&gt; 
+* `material` &lt;img class="modalImg3" alt="material"/&gt; 
+
+:::
+
+::: item 
+
+You can use these formats by simply specifying the output in YAML as below:
+
+
+```markdown
+output: rmdformats::readthedown
+```
+
+See more about it below:
+
+https://github.com/juba/rmdformats
+
+:::
+
+:::
+
+---
+
+# `rticles` - LaTeX Journal Article Templates
+
+&lt;!-- The Modal --&gt;
+&lt;div id="myModal4" class="modal"&gt;
+  &lt;div id="caption4"&gt;&lt;/div&gt;
+  &lt;span class="close" onclick="document.getElementById('myModal4').style.display='none'"&gt;&amp;times;&lt;/span&gt;
+  &lt;iframe class="modal-content" id="img04"&gt;&lt;/iframe&gt;&lt;br&gt;
+&lt;/div&gt;
+::: grid
+::: item 
+* `acm` &lt;img class='modalPdf' alt='acm_article'/&gt;
+* `acs` &lt;img class='modalPdf' alt='acs_article'/&gt;
+* `aea` &lt;img class='modalPdf' alt='aea_article'/&gt;
+* `agu` &lt;img class='modalPdf' alt='agu_article'/&gt;
+* `amq` &lt;img class='modalPdf' alt='amq_article'/&gt;
+* `ams` &lt;img class='modalPdf' alt='ams_article'/&gt;
+* `asa` &lt;img class='modalPdf' alt='asa_article'/&gt;
+* `biometrics` &lt;img class='modalPdf' alt='biometrics_article'/&gt;
+* `copernicus` &lt;img class='modalPdf' alt='copernicus_article'/&gt;
+
+
+:::
+
+::: item 
+
+* `elsevier` &lt;img class='modalPdf' alt='elsevier_article'/&gt;
+* `frontiers` &lt;img class='modalPdf' alt='frontiers_article'/&gt;
+* `ieee` &lt;img class='modalPdf' alt='ieee_article'/&gt;
+* `jss` &lt;img class='modalPdf' alt='jss_article'/&gt;
+* `mdpi` &lt;img class='modalPdf' alt='mdpi_article'/&gt;
+* `mnras` &lt;img class='modalPdf' alt='mnras_article'/&gt;
+* `peerj` &lt;img class='modalPdf' alt='peerj_article'/&gt;
+* `plos` &lt;img class='modalPdf' alt='plos_article'/&gt;
+
+:::
+
+::: item 
+* `pnas` &lt;img class='modalPdf' alt='pnas_article'/&gt;
+* `rjournal` &lt;img class='modalPdf' alt='rjournal_article'/&gt;
+* `rsos` &lt;img class='modalPdf' alt='rsos_article'/&gt;
+* `rss` &lt;img class='modalPdf' alt='rss_article'/&gt;
+* `sage` &lt;img class='modalPdf' alt='sage_article'/&gt;
+* `sim` &lt;img class='modalPdf' alt='sim_article'/&gt;
+* `springer` &lt;img class='modalPdf' alt='springer_article'/&gt;
+* `tf` &lt;img class='modalPdf' alt='tf_article'/&gt;
+
+::::
+
+::::
+
+
+::: {.bottom_abs .width100 .bg-indigo .white padding-left:10px;}
+Go to RStudio &gt; File &gt; New File &gt; R Markdown ... &gt; From Template
+:::
+
+
+---
+
+
+# External Files in Templating
+
+::: grid
+
+::: item 
+
+* When using `rticles`, each journal usually require external files (e.g. `cls` or image files).
+* These external components are stored within the package.
+* If you are drafting an Rmd template with external components then you need to extract these to your folder first. 
+
+::: 
+
+::: item bg-gray
+
+**GUI**
+
+* `RStudio &gt; File &gt; New File &gt; R Markdown ... &gt; From Template`
+
+**Command line**
+
+
+```r
+rmarkdown::draft("file.Rmd", 
+ template = "biometrics_article",
+ package = "rticles")
+```
+
+
+
+:::
+
+:::
+
+
+
+---
+
+class: info
+
+# More customisation needed?
+
+&lt;br&gt;
+
+Default templates for many output are found at
+
+&lt;br&gt;
+
+&lt;center&gt;
+
+&lt;a href="https://github.com/jgm/pandoc-templates"&gt;https://github.com/jgm/pandoc-templates&lt;/a&gt;
+
+&lt;/center&gt;
+
+&lt;br&gt;
+
+We'll go through the latex template.
+
+---
+
+I found this nice latex template online. 
+
+::: grid 
+
+::: item 
+
+You can see it at `main.pdf`.
+
+&lt;center&gt;
+&lt;iframe src="exercises/demo/main.pdf" width = "90%", height = "500px"&gt;&lt;/iframe&gt;
+&lt;/center&gt;
+
+:::
+
+::: item 
+
+It was compiled from `main.tex`.
+
+&lt;center&gt;
+&lt;iframe src="exercises/demo/main.tex" width = "90%", height = "500px"&gt;&lt;/iframe&gt;
+&lt;/center&gt;
+
+:::
+
+::::
+
+::: {.bottom_abs .width100 .bg-indigo .white padding-left:10px;}
+Find `main.tex` and `main.pdf` in `demo` folder.
+:::
+
+---
+
+class: middle question
+
+How do I use this template so that I can write contents from an Rmd file instead?
+
+---
+
+# Templating 
+
+We will use 
+
+```markdown 
+---
+output: 
+  pdf_document: 
+    template: main.tex
+---
+
+But nothing written in the body shows up in the output!
+```
+
+
+
+---
+
+class: challenge middle
+
+Go through
+
+`challenge-09.Rmd`
+
+<div class="countdown" id="timer_5d959efb" style="right:0;bottom:0;font-size:1.5em;">
+<code><span class="digits minutes">10</span><span class="digits colon">:</span><span class="digits seconds">00</span></code>
+</div>
+
+
+---
+
+
+# Citations
+
+`bibtex` is a wonderful tool to get citations. 
+You can use these in Rmd too!
+
+[@bibtex-key] -&gt; (Author et al. 2019)
+
+or 
+
+@bibtex-key -&gt; Author et al. 2019
+
+---
+
+# Cross Reference
+
+
+
+---
+
+class: challenge middle
+
+Go through
+
+`challenge-06.Rmd`
+
+<div class="countdown" id="timer_5d95a16f" style="right:0;bottom:0;font-size:1.5em;">
+<code><span class="digits minutes">10</span><span class="digits colon">:</span><span class="digits seconds">00</span></code>
+</div>
+
+
+---
+
+class: question middle 
+
+.yellow[R Markdown] is such an *indispensible tool* for making documents, especially if you have plan to *include statistical output*.
+
+
+How do you use (or plan to use) &lt;br&gt;R Markdown?
+
+---
+
+class: info
+
+# People that made R Markdown possible
+
+The development of R Markdown is largely thanks to
+
+
+
+* .yellow[Yihui Xie] &lt;br&gt;*Software Engineer at RStudio*&lt;br&gt; for `knitr`
+
+
+* .yellow[John MacFarlane] &lt;br&gt;*Professor of Philosophy at UC Berkeley*&lt;br&gt; for `pandoc`
+
+
+* and .yellow[many contributors] behind the development of these tools.
+
+
+---
+
+
+
+
+
+background-image: url(images/bg1.jpg)
+background-size: cover
+class: hide-slide-number
+
+
+::: grid
+
+::: {.item .shade_black .animated .slideInLeft border-right-style:solid; border-right-color:white; }
+
+# That's it!
+
+These slides are made using `xaringan` R-package.
+
+The workshop materials are licensed under [&lt;img src="images/cc.svg" style="height:1em"/&gt;&lt;img src="images/by.svg" style="height:1em"/&gt;&lt;img src="images/sa.svg" style="height:1em"/&gt;](https://creativecommons.org/licenses/by-sa/3.0/au/).
+
+&lt;br&gt;&lt;br&gt;
+
+Emi Tanaka
+
+&lt;i class="fas fa-envelope faa-float animated"&gt;&lt;/i&gt; dr.emi.tanaka@gmail.com&lt;br&gt;
+&lt;i class="fab fa-twitter faa-float animated faa-fast"&gt;&lt;/i&gt;  @statsgen
+
+
+:::
+
+::: {.item .shade_black .checklist .animated .slideInRight border-left-style: solid; border-right-color: white;}
+
+# Check that you can:
+
+&lt;ul&gt;
+&lt;li&gt;Understand how YAML changes .Rmd&lt;/li&gt;&lt;li&gt;Understand how to manipulate chunks in .Rmd&lt;/li&gt;&lt;li&gt;Change figure sizes in .Rmd&lt;/li&gt;
+&lt;/ul&gt;
+
+:::
+
+:::
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "dark",
+"highlightLanguage": ["r", "markdown"],
+"highlightLines": true,
+"highlightSpans": false,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%/%total%",
+"navigation": {
+"scroll": false,
+"touch": true,
+"click": false
+},
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+<script src="assets/pandoc.js"></script>
+<script src="assets/cssgrid.js"></script>
+<script src="libs/countdown-0.2.0/countdown.js"></script>
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+var modal2 = document.getElementById('myModal2');
+var modal3 = document.getElementById('myModal3');
+var modal4 = document.getElementById('myModal4');
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var modalImg = $("#img01");
+var modalImg2 = $("#img02");
+var modalImg3 = $("#img03");
+var modalPdf = $("#img04");
+var captionText = document.getElementById("caption");
+var captionText2 = document.getElementById("caption2");
+var captionText3 = document.getElementById("caption3");
+var captionText4 = document.getElementById("caption3");
+
+/* this adds the imag src from alt rather than having to add it manually*/
+$('.modalImg').attr("src", function() {
+  return "images/html_template_" + this.alt + ".png";
+  });
+$('.modalImg2').attr("src", function() {
+  return "images/html_template_" + this.alt + ".png";
+  });
+$('.modalImg3').attr("src", function() {
+  return "images/html_template_" + this.alt + ".png";
+  });
+$('.modalPdf').attr("src", function() {
+  return "output/articles/article_template_" + this.alt + ".png";
+  });
+
+/* this adds iframe */
+$('.modalImg').click(function(){
+    modal.style.display = "block";
+    var newSrc = "output/html/html_template_" + this.alt + ".html";
+    modalImg.attr('src', newSrc);
+    captionText.innerHTML = this.alt;
+});
+$('.modalImg2').click(function(){
+    modal2.style.display = "block";
+    var newSrc = "output/html/html_template_" + this.alt + ".html";
+    modalImg2.attr('src', newSrc);
+    captionText2.innerHTML = this.alt;
+});
+$('.modalImg3').click(function(){
+    modal3.style.display = "block";
+    var newSrc = "output/html/html_template_" + this.alt + ".html";
+    modalImg3.attr('src', newSrc);
+    captionText3.innerHTML = this.alt;
+});
+$('.modalPdf').click(function(){
+    modal4.style.display = "block";
+    var newSrc = "output/articles/article_template_" + this.alt + ".pdf";
+    modalPdf.attr('src', newSrc);
+    captionText4.innerHTML = this.alt;
+});
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'assets/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

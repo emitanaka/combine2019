@@ -1,13 +1,13 @@
 {
-    "path" : "~/Dropbox (Personal)/Workshops/20191004_COMBINE/slides",
+    "path" : "~/Dropbox (Personal)/Workshops/20191004_COMBINE/assets",
     "sortOrder" : [
-        {
-            "ascending" : false,
-            "columnIndex" : 4
-        },
         {
             "ascending" : true,
             "columnIndex" : 2
+        },
+        {
+            "ascending" : false,
+            "columnIndex" : 4
         }
     ]
 }

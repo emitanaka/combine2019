@@ -1,6 +1,21 @@
 {
     "debugBreakpointsState" : {
         "breakpoints" : [
+            {
+                "editor_line_number" : 56,
+                "editor_state" : 1,
+                "function_name" : "toplevel",
+                "function_steps" : "",
+                "id" : 0,
+                "is_package_breakpoint" : false,
+                "is_pending_debug_completion" : false,
+                "line_number" : 56,
+                "needs_updated_steps" : false,
+                "package_name" : "",
+                "path" : "~/Dropbox (Personal)/Workshops/20191004_COMBINE/slides/article_template_script.R",
+                "state" : 1,
+                "type" : 1
+            }
         ]
     }
 }
