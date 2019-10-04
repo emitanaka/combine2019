@@ -1,0 +1,123 @@
+\documentclass[11pt,]{letter}
+\usepackage{mathpazo}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage[unicode=true]{hyperref}
+\hypersetup{
+            pdfauthor={Emi Tanaka},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+% Make links footnotes instead of hotlinks:
+\renewcommand{\href}[2]{#2\footnote{\url{#1}}}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\usepackage{graphicx,grffile}
+\signature{\includegraphics{signature.png}\\Emi Tanaka}
+
+\date{4th October 2019}
+
+\address{Menzies Building\\
+Monash University}
+
+\usepackage{mdframed} % color is loaded by mdframed
+\definecolor{greyborder}{RGB}{221,221,221}
+\definecolor{greytext}{RGB}{119,119,119}
+\newmdenv[rightline=false,bottomline=false,topline=false,linewidth=3pt,linecolor=greyborder,skipabove=\parskip]{blockquote}
+\renewenvironment{quote}{\begin{blockquote}\list{}{\rightmargin=0em\leftmargin=0em}%
+\item\relax\color{greytext}\ignorespaces}{\unskip\unskip\endlist\end{blockquote}}
+
+
+\begin{document}
+
+
+\begin{letter}{Maggie Simpson\\
+Carlsaw Room 353\\
+The University of Sydney\\}
+\opening{Dear Maggie,}
+
+Welcome to the ``Communicating with Data via R Markdown'' workshop. This
+workshop is kindly sponsored by \href{https://combine.org.au/}{COMBINE}
+and organised by \href{https://twitter.com/_mengbo}{Mengbo Li}.
+
+This workshop teaches you how to use R Markdown but teaches little in
+communicating effectively. The aim of this workshop is so that you can
+get used to R Markdown, which integrates code and text together with
+ease.
+
+\begin{quote}
+To effectively communicate, we must realize that we are all different in
+the way we perceive the world and use this understanding as a guide to
+our communication with others.
+\end{quote}
+
+For effective communication, seek to know your audience and extract that
+story that the data are telling.
+
+\begin{quote}
+The two words `information' and `communication' are often used
+interchangeably, but they signify quite different things. Information is
+giving out; communication is getting through.
+\end{quote}
+
+Learning R Markdown is a step towards getting accurate information out
+but communication requires much more. This is why there is a benefit in
+coming to a workshop where you can interact with your peers.
+
+\begin{quote}
+Communication leads to community, that is, to understanding, intimacy
+and mutual valuing.
+\end{quote}
+
+I hope you can take this opportunity to get to know each other.
+
+\longindentation=0pt
+\closing{Sincerely,}
+\cc{Mengbo Li}
+
+\end{letter}
+
+\end{document}
