@@ -25,3 +25,5 @@ Find the instructions that was sent in email [here](instructions.pdf).
 * [Session 2: Reproducible Reports](session2.html)
 * [Session 3: Pretty Presentations](session3.html)
 
+All materials can be found at https://github.com/emitanaka/combine2019.
+
