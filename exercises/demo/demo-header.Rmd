@@ -1,0 +1,84 @@
+---
+title: "Demo: header cross-references"
+output: 
+  html_document:
+    df_print: "kable"
+---
+
+
+```{r setup, message = FALSE}
+library(tidyverse)
+library(knitr)
+```
+
+# A look at iris
+
+Let's have a look at the `iris` data set. The dataset contains `r nrow(iris)` observations. We'll also have a look at some [chicken weights](#chicken-data) later.
+
+## Count
+
+```{r iris-table}
+iris %>% 
+  group_by(Species) %>% 
+  count(name = "Count") 
+```
+
+
+
+## Scatter plot
+
+```{r iris-plot1}
+iris %>% 
+  ggplot(aes(Sepal.Length, Sepal.Width, color = Species)) + 
+  geom_point() + 
+  labs(title = "The iris data-set") +
+  theme_bw(base_size = 18) + 
+  theme(legend.position = "bottom")
+```
+
+## Distribution
+
+```{r iris-dist}
+iris %>% 
+  ggplot(aes(Species, Sepal.Length)) + 
+  geom_violin(aes(fill = Species)) +
+  geom_boxplot(width = 0.1) + 
+  theme_bw(base_size = 18) +
+  guides(fill = FALSE)
+```
+
+
+
+# Chicken Data
+
+Let's now have a look at `ChickWeight` data. The dataset contains `r nrow(ChickWeight)` observations and `r nlevels(ChickWeight$Chick)` chicks.
+
+## Chickens increase weight over time
+
+
+```{r chick-plot, fig.height = 8}
+ChickWeight %>% 
+  ggplot(aes(Time, weight, color = Diet)) + 
+  geom_point() +
+  facet_wrap(~Chick) + 
+  theme_minimal(base_size = 18)
+```
+
+## Diet effect
+
+
+```{r chick-dist, fig.height = 8}
+sumdat <- ChickWeight %>% 
+  filter(Time == max(Time)) %>% 
+  group_by(Diet) %>% 
+  summarise(Median = median(weight))
+
+ChickWeight %>% 
+  filter(Time == max(Time)) %>% 
+  ggplot(aes(Diet, weight)) + 
+  geom_point(size = 3, alpha = 1/3) +
+  theme_minimal(base_size = 18) +
+  geom_point(data = sumdat, aes(Diet, Median), color = "red", size = 5)
+```
+
+

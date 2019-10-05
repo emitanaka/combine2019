@@ -1,0 +1,10 @@
+---
+title: "Challenge 10"
+subtitle: "Templating"
+output: rmdformats::html_clean
+---
+
+1. Open the `mylatex.Rmd` in the `demo` folder and knit. Does anything in the body show up?
+2. Change the `template` value in the YAML of `mylatex.Rmd` to `template.tex` and knit. How is the output different compared to before? What's the difference in the `template`?
+3. Notice in the previous output, the YAML information such as title, author and date were not used. Try changing the template latex file so that the output file can be modified by YAML. You can find the answer in `final_template.tex`.
+4. (Advanced) For extra challenge you can try making a Rmd template for the Bioinformatics journal (you can find the latex template in the demo folder).

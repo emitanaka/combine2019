@@ -1,0 +1,15 @@
+---
+title: "Parameterized Report"
+params:
+  species: setosa
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+iris %>% 
+   filter(Species==params$species) %>% 
+   ggplot(aes(Sepal.Length, Sepal.Width)) +
+   geom_point(aes(color=Species))
+```
+

@@ -1,0 +1,48 @@
+---
+title: "Challenge 2"
+subtitle: "Suppressing code and output"
+output: html_document
+---
+
+**Learning objective** 
+
+* `include = FALSE`
+
+## Case study: loading `tidyverse`
+
+If you try to load the `tidyverse` package, you get many messages.
+
+
+```{r pkg-load}
+library(tidyverse)
+```
+
+In writing your report, you probably do not want to
+
+1. print the R code; and
+1. print all the peripheral messages.
+
+To achieve this you can use the chunk option:
+
+`echo = FALSE, message = FALSE`.
+
+`r emo::ji("question")` **Can you tell which option does what?**
+
+`r emo::ji("wrench")` **Modify the `pkg-load` chunk to hide the code and message outputs.** 
+
+This can be done more succintly using:
+
+`include = FALSE`.
+
+In fact it's equivalent to hiding code and all outputs:
+
+`echo=FALSE, results='hide',` 
+`message=FALSE, warning=FALSE,` 
+`fig.show='hide'`.
+
+
+Reference: Yihui has excellent tips like this on [his blog](https://yihui.name/en/2017/11/knitr-include-false/).
+
+
+
+

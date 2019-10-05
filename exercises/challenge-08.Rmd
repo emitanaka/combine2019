@@ -1,0 +1,69 @@
+---
+title: "Communicating with Data via R Markdown"
+subtitle: "Parameterized Report"
+params:
+  species: 
+    label: "Species"
+    value: "setosa"
+    input: select
+    choices: [setosa, versicolor, virginica]
+  color: red
+  max:
+    label: "Maximum Sepal Width"
+    value: 5
+    input: slider
+    min: 4
+    max: 5
+    step: 0.05
+output: 
+  html_document:
+    df_print: kable
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(knitr)
+opts_chunk$set(echo = FALSE)
+sub_iris <- iris %>% 
+  filter(Species==params$species) %>% 
+  filter(Sepal.Length <= as.numeric(params$max))
+```
+
+# Iris
+
+1. Knit with default parameters.
+1. Generate a new report with species `versicolor` with maximum sepal length of 4.95 without changing this document.
+
+
+## Closer look at `r params$species`
+
+Let's have a look at the subset of `iris` data set. The dataset contains `r nrow(sub_iris)` observations for species `r params$species` with maximum sepal length `r params$max`.
+
+
+```{r iris-table}
+sub_iris %>% 
+  group_by(Species) %>% 
+  count(name = "Count") 
+```
+
+
+
+```{r iris-plot1}
+sub_iris %>% 
+  ggplot(aes(Sepal.Length, Sepal.Width, color = Species)) + 
+  geom_point() + 
+  theme_bw(base_size = 18) + 
+  theme(legend.position = "bottom")
+```
+
+
+```{r iris-dist}
+sub_iris %>% 
+  ggplot(aes(Species, Sepal.Length)) + 
+  geom_violin(aes(fill = Species)) +
+  geom_boxplot(width = 0.1) + 
+  theme_bw(base_size = 18) +
+  guides(fill = FALSE)
+```
+
+

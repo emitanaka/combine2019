@@ -1,0 +1,58 @@
+---
+title: "Communicating with Data via R Markdown"
+author: "Emi Tanaka"
+date: "`r Sys.Date()`"
+fontfamily: bera
+cc: "Mengbo Li (Organiser)"
+closing: "------------------------------"
+output:
+  linl::linl
+---
+
+**Communicating with Data via R Markdown**
+
+*Instructions*
+
+1. Install the latest [R](https://cran.r-project.org/mirrors.html) (>3.5) and [RStudio Desktop](https://rstudio.com/products/rstudio/) (>1.2).
+2. Install [LaTeX](https://www.latex-project.org/get/). This is rather big (e.g. MacTeX is approximate 3.9G). If you have never installed LaTeX before, then you are recommended to install via `tinytex` which is much more light-weight. Open R and enter the following commands:
+```{r, eval = FALSE}
+install.packages("tinytex")
+tinytex::install_tinytex()
+```
+3. Install the following packages and its dependencies:
+```{r, eval = FALSE}
+install.packages(c("tidyverse", 
+                 "rmarkdown", 
+                 "knitr",
+                 "emo", 
+                 "xaringan", 
+                 "usethis",
+                 "rmdformats", 
+                 "prettydoc",
+                 "rticles",
+                 "linl",
+                 "shiny",
+                 "bookdown",
+                 "pagedown",
+                 "remotes"))
+# the following is not on CRAN 
+remotes::install_github("gadenbuie/xaringanthemer")
+```
+4. Make an account at https://rstudio.cloud (it's free).
+5. Make an account at https://rpubs.com (it's also free).
+6. Make a github account https://github.com (yes free).
+7. Install [Google Chrome browser](https://www.google.com/chrome/) on your laptop.
+
+*Pre-Work*
+
+You will get the most out of the workshop if you know some markdown, LaTeX, HTML/CSS and R. Please do these tutorials if you are not familiar or need to brush up with it! 
+
+* Markdown tutorial https://www.markdowntutorial.com - 10 minutes tutorial
+* LaTeX tutorial https://www.latex-tutorial.com/quick-start/
+* HTML/CSS tutorial https://www.codecademy.com/learn/learn-html/modules/learn-html-elements (This is free but you need to sign up)
+* Brush up in basic R (http://swirlstats.com) if you need to
+
+*On the day*
+
+* Bring your laptop (with administrative rights) along with your power cord.
+* Registration starts at Friday 4th October 12.30pm at Carslaw Room 353, The University of Sydney.

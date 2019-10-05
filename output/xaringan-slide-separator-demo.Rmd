@@ -1,0 +1,16 @@
+---
+title: "My first xaringan slide"
+subtitle: "Not!"
+author: "Emi Tanaka"
+date: "4th October 2019"
+output: 
+  xaringan::moon_reader
+---
+
+# Slide after title slide
+
+---
+
+# Next slide
+
+Can use **markdown**!

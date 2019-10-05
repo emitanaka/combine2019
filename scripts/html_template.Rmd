@@ -1,0 +1,50 @@
+---
+title: "Communicating with Data via R Markdown"
+subtitle: "Reproducible Reports"
+author: "Emi Tanaka"
+date: "4th October 2019"
+output: 
+  html_document: 
+    theme: default
+---
+
+# Description
+
+The workshop will teach how to create reproducible reports using R Markdown. The workshop will cover the basics of R Markdown as well as contain some tips to streamline your scientific writing including the use of parameterised reports and custom templates. The latter part of the workshop will teach about creating pretty presentation using R Markdown via the xaringan R package. There will be some introduction to CSS/HTML and tips on making beautiful slides. 
+
+This workshop is a preview to the "Communicating with Data" course taught as part of Master of Business Analytics in Monash University. 
+
+# Instructor
+
+The instructor will be Dr Emi Tanaka. She is a lecturer in statistics at the School of Mathematic and Statistics, The University of Sydney, and an experienced R user. She has been a teaching assistant for Tidy Tools workshop by Dr Hadley Wickham (Chief Scientist at RStudio); Communicating with R Markdown workshop by Dr Alison Hill (from RStudio) and Visualising high-dimensional data workshop by Prof Di Cook (from Monash).
+
+# Requirements
+
+
+The workshop participants are expected to have some familiarity with R. Specifically it would be desirable if they know the basics such as covered by "An Introduction to R" Sections 1-6, 9-10 (https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf). 
+
+Some basic familiarity with Markdown or R Markdown is desirable to get the most out of the workshop but not necessary.
+
+The workshop participants will be expected to bring their own laptops (with administrative rights) with latest R and RStudio installed along with latest tidyverse, knitr, rmarkdown and xaringan R-packages.
+
+# Schedule
+
+The intended schedule is
+
+| Time          | Activity                                |
+|:--------------|:----------------------------------------|
+| 1:00PM - 1:25PM | Session 1: R Markdown Basics          |
+| 1:25PM - 1:30PM | *Break* `r emo::ji("tea")`           |
+| 1:30PM - 3:00PM | Session 2: Reproducible Reports           |
+| 3:00PM - 3:30PM | *Afternoon Tea* `r paste0(emo::ji("coffee"), emo::ji("cake"))`              |
+| 3:30PM - 5:00PM | Session 3: Pretty Presentations  |
+
+
+# Packages
+
+Participants will need to install some packages. 
+You can install packages, say `tidyverse` and `rmarkdown`, by command like below:
+
+```{r, eval = FALSE}
+install.packages(c("tidyverse", "rmarkdown"))
+```

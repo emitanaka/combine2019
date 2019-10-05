@@ -1,0 +1,408 @@
+---
+title: "Communicating with Data via R markdown"
+subtitle: "\u2728 Pretty Presentations \u2728"
+author: "Emi Tanaka"
+email: "dr.emi.tanaka@gmail.com"
+date: "4th October 2019 | COMBINE | Sydney, Australia"
+pdflink: "link"
+titleslide_bgimg: "images/bg3.jpg"
+color_theme: "#FC427B"
+output:
+  xaringan::moon_reader:
+    css: [ninjutsu, "assets/animate.css", "assets/cssgrid.css", "assets/custom.css", ]
+    self_contained: false # if true, fonts will be stored locally
+    seal: false # show a title slide with YAML information
+    #yolo: false # show Karl randomly
+    chakra: 'libs/remark-latest.min.js'
+    beforeInit: "assets/custom.js"
+    lib_dir: libs
+    includes:
+      in_header: "assets/custom.html"
+      # before_body: 
+      after_body: "assets/remarkjs_extended.html"
+      # includes
+    mathjax: "assets/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+    nature:
+      # autoplay: 100 # in milliseconds to play next slide
+      # coundown: 100 # to display on each slide (TRUE if autoplay on)
+      # titleSlideClass: c("center", "middle", "inverse")
+      highlightStyle: dark # [arta, ascetic, dark, default, far, github, googlecode, idea, ir-black, magula, monokai, rainbow, solarized-dark, solarized-light, sunburst, tomorrow, tomorrow-night-blue, tomorrow-night-bright, tomorrow-night, tomorrow-night-eighties, vs, zenburn.]
+      highlightLanguage: r # no-highlight to disable
+      highlightLines: true
+      highlightSpans: false # true: use `backticks` as delimiters.
+      countIncrementalSlides: false
+      slideNumberFormat: '%current%/%total%'
+      navigation:
+        scroll: false # disable scrolling to navigate slides
+        touch: true
+        click: false
+      ratio: '16:9' # ['4:3', '13:9']
+---
+
+
+
+```{r titleslide, child="scripts/titleslide.Rmd"}
+```
+
+[Background photo by Adam H. Sparks]{.pos .font_small top:5px;left:5px;}
+
+---
+
+# HTML Slides from Rmd
+
+::: grid
+
+::: item 
+
+* There are a number of ways to make html slides in Rmd including `ioslides` and `slidy`. 
+* My favorite one is `xaringan` `r emo::ji("package")`!
+* It's highly customisable.
+* These slides are made by `xaringan`!
+* Note that it uses `remark.js` to render the final html instead of `pandoc`!
+
+:::: 
+
+::: item 
+
+<iframe src="https://slides.yihui.name/xaringan/" height = "450px" width = "600px"></iframe>
+
+https://slides.yihui.name/xaringan
+
+:::
+
+:::
+
+---
+
+class: font_smaller
+
+# `xaringan` easy slide separator `---`
+
+::: grid 
+
+::: item 
+
+```markdown
+---
+title: "My first xaringan slide"
+subtitle: "Not!"
+author: "Emi Tanaka"
+date: "4th October 2019"
+output: 
+  xaringan::moon_reader
+---
+
+# Slide after title slide
+
+*---
+
+# Next slide
+
+Can use **markdown**!
+
+```
+:::
+
+::: item
+
+<iframe src="output/xaringan-slide-separator-demo.html"  height = "450px" width = "600px"></iframe>
+
+:::
+
+:::
+
+::: { .bubble1 .pos width:300px;left:31%;top:35%;}
+
+YAML information used for title slide
+
+:::
+
+::: { .bubble1 .pos width:300px;left:31%;bottom:11%;}
+
+No spaces after <br>`---`!
+
+:::
+
+---
+
+# HTML/CSS
+
+But you want to customise more?
+
+You do need to be a ninja to do that. 
+
+Or know a bit about HTML/CSS.
+
+::: grid 
+
+::: item
+
+HTML
+```html
+<div class="bg-red">
+This creates a box <br>
+with red background.
+</div>
+```
+
+
+
+:::
+
+::: item 
+
+CSS
+```css
+.bg-red {
+  background-color: red;
+}
+
+```
+
+:::
+
+:::
+
+::: {.pos top:1%;left:50%; }
+OUTPUT
+<div class="bg-red">
+This creates a box <br>
+with red background.
+</div>
+
+:::
+
+
+---
+
+# HTML/CSS II
+
+But the box and text look too squished.
+
+I increase the padding here.
+
+<br><br>
+
+::: grid 
+
+::: item
+
+HTML
+```html
+<div class="bg-red">
+This creates a box <br>
+with red background.
+</div>
+```
+
+
+
+:::
+
+::: item 
+
+CSS
+```css
+.bg-red {
+   background-color: red;
+*  padding: 20px;
+}
+
+```
+
+:::
+
+:::
+
+::: {.pos top:1%;left:55%; }
+OUTPUT
+<div class="bg-red" style="padding: 20px;">
+This creates a box <br>
+with red background.
+</div>
+
+:::
+
+---
+
+# HTML/CSS III
+
+But a white text suits better.
+
+<br><br>
+
+::: grid 
+
+::: item
+
+HTML
+```html
+<div class="bg-red">
+This creates a box <br>
+with red background.
+</div>
+```
+
+
+
+:::
+
+::: item 
+
+CSS
+```css
+.bg-red {
+   background-color: red;
+   padding: 20px;
+*  color: white;
+}
+
+```
+
+:::
+
+:::
+
+::: {.pos top:1%;left:55%; }
+OUTPUT
+<div class="bg-red" style="padding:20px;color:white;">
+This creates a box <br>
+with red background.
+</div>
+
+:::
+
+---
+
+# HTML/CSS IV
+
+In contrast, `span` is "inline".
+
+<br><br>
+
+::: grid 
+
+::: item
+
+HTML
+```html
+*<span class="bg-red">
+This creates a box <br>
+with red background.
+*</span>
+```
+
+:::
+
+::: item 
+
+CSS
+```css
+.bg-red {
+   background-color: red;
+   padding: 20px;
+   color: white;
+}
+
+```
+
+:::
+
+:::
+
+::: {.pos top:1%;left:55%; }
+OUTPUT
+
+<span class="bg-red" style="padding:20px;color:white;">
+This creates a box <br>
+with red background.
+</span>
+
+:::
+
+
+---
+
+# `remark.js`: div and span classes
+
+`remark.js` makes it easier to write `div` and `span` elements.
+
+
+::: grid 
+
+::: item bg-indigo white
+
+Text in new line
+
+```markdown
+.bg-red[
+Some text
+]
+```
+
+is converted to
+
+```markdown
+<div class="bg-red">
+Some text
+</div>
+```
+
+
+::: 
+
+::: item bg-green white 
+
+Placing `[` `]` in the same line
+
+```markdown
+.bg-red[Some text]
+```
+
+results in 
+
+```markdown
+<span class="bg-red">
+Some text
+</span>
+```
+
+
+:::
+
+:::
+
+---
+
+# `remark.js`: specify class to a whole slide
+
+
+
+::: grid 
+
+::: item 
+
+<iframe class="zoom-frame" src="exercises/demo/demo-xaringan.Rmd" height="500px" width = "280px"></iframe>
+
+::: 
+
+::: item 
+
+<iframe src="exercises/demo/demo-xaringan.html" height = "450px" width = "600px" "></iframe>
+
+
+:::
+
+:::
+
+
+
+---
+
+```{r checklist, echo = FALSE}
+checklist <- c("Be able to make slides from Rmd",
+               "Change the background color of a slide")
+```
+
+```{r endslide, child="scripts/endslide.Rmd"}
+```

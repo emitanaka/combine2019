@@ -1,0 +1,27 @@
+---
+title: "Communicating with Data via R Markdown"
+author: "Emi Tanaka"
+date: "4th October 2019"
+output:
+  prettydoc::html_pretty:
+    theme: tactile
+---
+
+```{css, echo = FALSE}
+/* This doesn't work for include = FALSE */
+code, pre {
+  color: #d5000d!important;
+}
+```
+
+## Getting started
+
+Find the instructions that was sent in email [here](instructions.pdf).
+
+
+## Slides 
+
+* [Session 1: R Markdown Basics](session1.html)
+* [Session 2: Reproducible Reports](session2.html)
+* [Session 3: Pretty Presentations](session3.html)
+

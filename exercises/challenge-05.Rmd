@@ -1,0 +1,38 @@
+---
+title: "Challenge 5"
+subtitle: "Long computations"
+output: html_document
+---
+
+**Learning objective** 
+
+* Quick compiling using `cache = TRUE`
+* Dangers of caching
+
+```{r}
+knitr::opts_chunk$set(cache.path ='cache/')
+```
+
+
+## Quicken knitting
+
+When you `knit`, by default it re-evaluates the chunk each time. This can be a pain if you need to constantly `knit` your document and you have to wait for a chunk to finish its computation. (I lose my patience even if its only 20 seconds.)
+
+To quicken the process, setting the chunk option `cache = TRUE` will be helpful. For example, the following chunk will initially take about 20 seconds to compute. The next time though, if the content of the chunk remains unchanged, it will be much less than 20 seconds to compute although the output results are the same.
+
+```{r long-computation, cache = TRUE}
+start <- Sys.time()
+Sys.sleep(20)
+end <- Sys.time()
+print(end - start)
+```
+
+The results of the cache are saved by what is set in `cache.path` which we have set globally to `cache.path = 'cache/'` previously. You can find there is a folder called `cache` which contains the cached output.
+
+
+## Dangers of caching
+
+When you cache, there is some danger that the result that is shown in knitted output is invalid. This may be a result of some previous chunk or external file that has changed since running the cache and directly impacts the results. Thus it is good practice that you run your final document with `cache = FALSE` to ensure your results are reproducible.
+
+See more about this on [Yihui's blog post](https://yihui.name/en/2018/06/cache-invalidation/).
+

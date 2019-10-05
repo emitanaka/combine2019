@@ -1,0 +1,124 @@
+---
+title: "Challenge 6"
+subtitle: "Chunk names"
+output: html_document
+---
+
+**Learning objective** 
+
+* Chunk label rules
+* Why label chunks?
+* `ref.label` option
+* repeating chunks
+
+```{r setup, message = FALSE}
+library(tidyverse)
+
+knitr::opts_chunk$set(
+  cache.path ='cache/',
+  fig.path   ='figure/',
+  fig.align  ='center',
+  fig.retina = 2
+)
+```
+
+
+## Chunk label / names
+
+Avoid spaces and periods in chunk labels as they can cause issues in TeX documents. Instead of using spaces or periods, you are recommended to use "-" as a separator instead, e.g. `clean-data`. You should never label your chunk with a prefix `unnamed-chunk-` as these prefix are used by unlabelled chunks.
+
+Chunk labels is written straight after the engine. E.g. `{r clean-data}` has the chunk label/name `clean-data`.
+
+The following code calculates how many seconds it took for the car to stop. The chunk name is `seconds-to-stop`.
+
+```{r seconds-to-stop}
+ftps <- 1.467 * cars$speed # convert to ft per second
+seconds_to_stop <- cars$dist / ftps 
+summary(seconds_to_stop)
+```
+
+## Why name chunks?
+
+
+### Unnamed chunks
+
+If you do not name a chunk, the chunk will be automatically lablled with a prefix `unnamed-chunk-` to the corresponding unnamed chunk number. E.g. the first unnamed chunk will be labelled `unnamed-chunk-1` then the second unnamed chunk `unnamed-chunk-2` and so on. 
+
+If you later decide to enter a new unnamed chunk between `unnamed-chunk-1` and `unnamed-chunk-2` then the inserted new chunk will now instead become `unnamed-chunk-2` while the previous `unnamed-chunk-2` will become `unnamed-chunk-3`.
+
+
+`r emo::ji("wrench")` **Replace [[TODO]] with their corresponding chunk name.** E.g. `unnamed-chunk-1` has been done for you.
+
+`r emo::ji("wrench")` **Now insert an unnamed chunk between these chunks with code `knitr::opts_current$get("label")` and knit.**
+
+`r emo::ji("question")` **What do you notice with the chunk names?**
+
+
+```{r, echo = -2 }
+knitr::opts_current$get("label")
+cat("This has chunk label 'unnamed-chunk-1'")
+```
+
+```{r, echo = -2 }
+knitr::opts_current$get("label")
+cat("This has chunk label [[TODO]]")
+```
+
+### Chunk names make it easier to debug
+
+When you do not name your chunks, it makes it harder to locate the chunk. This can affect debugging of your code. 
+
+E.g. you may have noticed that when you knit your document, you get an output like this. If there's an error in your code, you can tell which chunk it is from the label if it has one. 
+
+![](images/rmarkdown_job.png)
+
+### Chunk name relates to the exported figure name
+
+The following chunk that generates the red scatterplot is named `red-plot`. 
+
+```{r red-plot}
+ggplot(cars, aes(dist, speed)) + 
+  geom_point(color = "red", size = 2)
+```
+
+You can find this figure called `red-plot-1.png` in the `figure` folder.
+
+
+### Chunk name relates to the cached output
+
+The following chunk to do a simple computation is called `simple-cache-output`. In the `cache` folder (which we previous set the `cache.path` to be) contains R output data with prefix `simple-cache-output` that relates to this chunk output. 
+
+
+```{r simple-cache-output}
+# this adds numbers 
+1 + 1
+```
+
+The use of named chunks for cache output is particularly important as unnamed chunk labels may change depending on insertation of a new unnamed chunk and makes previous cache chunk invalid. 
+
+
+## Reference labels
+
+Instead of repeating chunk code, you may like to `ref.label` the name of the chunk that you want to repeat. This is particularly useful if you want to show the computation code but want to delay showing the chunk output. Chunks that have `ref.label` should be empty.
+
+E.g. the chunk below uses `ref.label = "red-plot"` to insert code from the chunk named `red-plot` (found above) but `eval = FALSE` so it will not show the plot. 
+
+```{r, ref.label = "red-plot", eval = FALSE}
+```
+
+You can choose to show the plot later with a chunk option `ref.label = "red-plot"` and `echo = FALSE` (to hide code) as below.
+
+```{r, ref.label = "red-plot", echo = FALSE}
+```
+
+When you have only a single `ref.label` then a shorthand is to create an empty chunk with the chunk label as the same as input for `ref.label`. E.g. below chunk is the same as the options `ref.label = "red-plot", eval = FALSE`.
+
+```{r red-plot, eval = FALSE}
+```
+
+You can reference multiple chunks by supplying a character vector of chunk labels. E.g. below we have `ref.label = c("red-plot", "simple-cache-output")`.
+
+```{r, ref.label = c("red-plot", "simple-cache-output")}
+```
+
+It's a good idea to name your chunks although you may be lazy to do this like me. The [namer](https://github.com/lockedata/namer) package attempts to make this easier.

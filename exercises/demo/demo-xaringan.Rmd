@@ -1,0 +1,128 @@
+---
+title: "Demo xaringan"
+author: "Emi Tanaka"
+date: "4th October 2019"
+output:
+  xaringan::moon_reader:
+    seal: false
+    css: 
+      - "ninjutsu" # in-built theme (no .css at the end)
+      - "default" # in-built theme
+      - "default-fonts"  # in-built theme
+      - "demo.css"
+      - "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
+---
+
+
+class: center middle
+
+# `r rmarkdown::metadata$title`
+## `r rmarkdown::metadata$author`
+
+(use `seal: false` to customise your own title slide)
+
+(`center` and `middle` are special classes built-in `remark.js`)
+
+(it horizontally and vertically centers elements)
+
+
+### `r rmarkdown::metadata$date`
+
+---
+
+class: bg-red
+
+# Demo 1
+
+This slide will have a red background and white text
+
+---
+
+class: bg-black
+
+# Demo 2
+
+This slide will have a black background and white text
+
+---
+
+# Demo 3
+
+.bg-red[This text will be in white color with red background.]
+
+
+.bg-red[
+This text will also be in white color with red background but the background spans the full width.]
+
+---
+
+class: split-two
+
+.column.bg-red[
+
+# Split-cells
+
+
+]
+.column.bg-black[
+
+
+These split columns is using the [ninja theme](https://github.com/emitanaka/ninja-theme).
+
+]
+
+---
+
+class: animated slideInLeft
+
+# You can easily animate slides
+
+This slide will slide in from left. 
+
+.animated.infinite.flash[This text will be flashing.]
+
+# Position elements anywhere
+
+You can position things anywhere using `position:absolute`.
+
+E.g.
+
+```html
+<div style="position:absolute;bottom:0;">
+This text will be on the bottom of the slide.
+</div>
+```
+
+<div style="position:absolute;bottom:0;">This text will be on the bottom of the slide.</div>
+
+---
+
+class: bg-black
+
+
+# OKay I am tired...
+
+
+# Maybe more `xaringan` next time
+
+# I part you with the infinite moon reader:
+
+```{r, eval = FALSE}
+xaringan::inf_mr()
+```
+
+---
+
+class: bg-red
+
+# Okay let's do more 
+
+Bla bla
+
+Hello, this is live editing.
+
+---
+
+Let's try new slide.
+
+

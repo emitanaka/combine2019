@@ -1,0 +1,11 @@
+---
+title: "Citations"
+bibliography: demo.bib
+output: pdf_document
+---
+
+
+* Citation in brackets: [see @ggplot-book, pp. 33-35; also @xaringan-pkg].
+* Citation without brackets: @ggplot-book.
+
+## References

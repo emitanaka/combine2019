@@ -1,0 +1,42 @@
+---
+title: "Challenge 9"
+subtitle: "R Markdown via command line"
+output: rmdformats::html_clean
+---
+
+1. Find the Rmd file called `myletter.Rmd` in the `demo` folder and compile it. 
+2. Collect and make note of the names of your fellow workshop participants.
+3. The following people are a data frame of workshop particpants. Add/replace your the particpant data with your name and people you met in this workshop. 
+
+```{r participants, message = FALSE}
+library(tidyverse)
+dat <- tribble(~first_name, ~last_name,
+               "Will", "Smith",
+               "Jada", "Pinkett",
+               "Jaden", "Smith",
+               "Willow", "Smith",
+               "Homer", "Simpson",
+               "Marge", "Simpson",
+               "Bart", "Simpson",
+               "Lisa", "Simpson",
+               "Maggie", "Simpson"
+               )
+dat
+```
+
+4. I want to replace the generic letter with a personalised letter by changing "Workshop Participant" replaced with their name and "Dear Participant" replaced with "Dear [their first name]". Manually changing the names is a lot of work. The following code implements a programmatic way of generating the letters but you need to modify `myletter.Rmd` YAML with parameters `first_name` and `last_name`. Can you modify `myletter.Rmd` to generate the personalised letters? 
+
+```{r, eval = FALSE}
+for(i in 1:nrow(dat)) {
+  first_name <- dat$first_name[i]
+  last_name <- dat$last_name[i]
+  output_file <- paste0("myletter_", first_name, last_name)
+  rmarkdown::render("exercises/demo/myletter.Rmd", 
+                    params = list(first_name = first_name,
+                                  last_name = last_name),
+                    output_file = output_file)
+}
+```
+
+5. (As an additional challenge, you may try to replace the for loop with `purrr::walk2` if you are familiar with functional programming).
+

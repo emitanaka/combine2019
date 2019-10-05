@@ -1,0 +1,57 @@
+---
+title: "Challenge 3"
+subtitle: "Global chunk options"
+output: html_document
+---
+
+**Learning objective** 
+
+* `knitr::opts_chunk$set`
+
+## DRY everytime
+
+Repeating chunk options can be painful in your workflow. If you are say writing `echo = FALSE` for every single chunk, you might as well set the default chunk option to `echo = FALSE`. Remember **don't repeat yourself** (DRY) everytime.
+
+In order to change the default chunk options you can use `knitr::opts_chunk$set(echo = FALSE)`.
+
+You can get the current default by using the following command:
+
+```{r}
+str(knitr::opts_chunk$get())
+```
+
+Now if I change it so that `echo = FALSE`
+
+```{r}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+then you can see the global default option is `echo = FALSE`:
+```{r}
+knitr::opts_chunk$get()$echo
+```
+
+You can set multiple default options at once. My default chunk option values includes below. (Notice that in the Rmd source file I have to set `echo = TRUE` to overwrite the current default option `echo = FALSE`).
+
+```{r, echo = TRUE}
+knitr::opts_chunk$set(
+  echo       = TRUE,
+  eval       = TRUE,
+  warning    = FALSE,
+  message    = FALSE,
+  cache      = FALSE,
+  cache.path ='cache/',
+  fig.path   ='figure/',
+  fig.align  ='center',
+  fig.retina = 2
+)
+```
+
+`r emo::ji("question")`**What does each of the above options do?**
+
+Hint: Check out https://yihui.name/knitr/options/
+
+With this now we have `echo = TRUE` once again.
+
+Remember that it is good practice to set default chunk options at the *beginning* of your Rmd file just as it is good practice to load all packages needed at the beginning. This makes it easier to quickly see what the expected behaviour of the chunks for anyone (including yourself) looking at the file.
+

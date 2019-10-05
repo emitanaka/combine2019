@@ -1,0 +1,36 @@
+---
+author: Emi Tanaka
+date: 4th October 2019
+params: 
+  first_name: "Marge"
+  last_name: "Simpson"
+opening: "Dear `r params$first_name`,"
+closing: Sincerely,
+address: |
+ `r params$first_name` `r params$last_name`\
+ Carlsaw Room 353\
+ The University of Sydney\
+cc: Mengbo Li
+return-address: |
+ Menzies Building\
+ Monash University 
+signature: signature.png
+output: linl::linl
+---
+
+Welcome to the "Communicating with Data via R Markdown" workshop. This workshop is kindly sponsored by [COMBINE](https://combine.org.au/) and organised by [Mengbo Li](https://twitter.com/_mengbo).
+
+This workshop teaches you how to use R Markdown but teaches little in communicating effectively. The aim of this workshop is so that you can get used to R Markdown, which integrates code and text together with ease. 
+
+> To effectively communicate, we must realize that we are all different in the way we perceive the world and use this understanding as a guide to our communication with others.
+
+For effective communication, seek to know your audience and extract that story that the data are telling.  
+
+> The two words 'information' and 'communication' are often used interchangeably, but they signify quite different things. Information is giving out; communication is getting through.     
+
+Learning R Markdown is a step towards getting accurate information out but communication requires much more. This is why there is a benefit in coming to a workshop where you can interact with your peers. 
+
+> Communication leads to community, that is, to understanding, intimacy and mutual valuing.     
+
+I hope you can take this opportunity to get to know each other.
+
