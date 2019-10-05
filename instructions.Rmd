@@ -24,7 +24,6 @@ tinytex::install_tinytex()
 install.packages(c("tidyverse", 
                  "rmarkdown", 
                  "knitr",
-                 "emo", 
                  "xaringan", 
                  "usethis",
                  "rmdformats", 
@@ -37,6 +36,7 @@ install.packages(c("tidyverse",
                  "remotes"))
 # the following is not on CRAN 
 remotes::install_github("gadenbuie/xaringanthemer")
+remotes::install_github("hadley/emo")
 ```
 4. Make an account at https://rstudio.cloud (it's free).
 5. Make an account at https://rpubs.com (it's also free).
